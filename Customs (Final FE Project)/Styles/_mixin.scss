@@ -1,0 +1,35 @@
+@mixin underline($width, $height, $bottom, $right, $color, $marginProperty, $changingProp) {
+    position: relative;
+    .underLine {
+        position: absolute;
+        width: $width;
+        height: $height;
+        bottom: $bottom;
+        right: $right;
+        background-color: $color;
+        border-radius: 5vw;
+        #{$marginProperty}: 50%;
+    }
+    transition: 0.2s ease;
+    &:hover{
+        .underLine{
+            #{$changingProp}: 100%;
+            #{$marginProperty}: 0;
+            transition: 0.3s ease;
+        }
+    }
+}
+
+@mixin LoginReg(){
+    position: absolute;
+
+    margin-left: 35vw;
+    width: 26vw;
+    height: fit-content;
+    min-height: 16vh;
+    padding: 2vh 2vw;
+    border: 0.5vh solid;
+    border-color: var(color);
+    background-color: var(--bg);
+    border-radius: 0.5vh;
+}

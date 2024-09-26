@@ -1,0 +1,68 @@
+@keyframes WavingLamp {
+    0%{
+        transform: rotate(2deg);
+    }
+    50%{
+        transform: rotate(-3deg);
+    }
+    100%{
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes stroke {
+    0%{
+        stroke-dashoffset: 0px;
+        stroke-dasharray: 150px;
+    }
+    50%{
+        stroke-dashoffset: 130px;
+        stroke-dasharray: 50px;
+    }
+    100%{
+        stroke-dashoffset: 0px;
+        stroke-dasharray: 150px
+    }
+}
+
+@keyframes Alert {
+    0%{
+        opacity: 0;
+    }
+    15%{
+        opacity: 1;
+    }
+    85%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes SVGPick {
+    0%{
+        stroke-dasharray: 50%;
+        stroke-dashoffset: 50%;
+    }
+    50%{
+        stroke-dasharray: 50%;
+        stroke-dashoffset: 500%;
+    }
+    100%{
+        stroke-dasharray: 50%;
+        stroke-dashoffset: 50%;
+    }
+}
+
+@keyframes SpinnerOff {
+    from{
+        visibility: visible;
+        opacity: 1;
+    }
+    to{
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+    }
+}

@@ -1,0 +1,33 @@
+body.light {
+    --bg: var(--white);
+    --color: var(--black);
+    --bgR: var(--black);
+    --colorR: var(--white);
+    #LampDark{
+        visibility: hidden;
+    }
+    #Light{
+        visibility: hidden;
+    }
+    --blur: #EFEBEB7f;
+    --mobileBlur: #efebeb8f;
+    --phoneNumber: rgb(190, 190, 190);
+    --input: rgb(211, 211, 211);
+}
+
+body.dark {
+    --bg: var(--black);
+    --color: var(--white);
+    --bgR: var(--white);
+    --colorR: var(--black);
+    #LampDark{
+        visibility: visible;
+    }
+    #Light{
+        visibility: visible;
+    }
+    --blur: #1616167f;
+    --mobileBlur: #1616168f;
+    --phoneNumber: rgb(58, 58, 58);
+    --input: rgb(43, 43, 43);
+}

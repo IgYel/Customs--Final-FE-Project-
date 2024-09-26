@@ -1,0 +1,186 @@
+.ProfileWindow {
+  background-color: var(--bg);
+  .profileWindowButton {
+    font-size: 28px;
+    margin: 2.5vh 0;
+    width: fit-content;
+    @include underline(
+      0,
+      0.4vh,
+      -0.8vh,
+      auto,
+      var(--color),
+      "margin-left",
+      "width"
+    );
+  }
+  #LogOutButton {
+    margin-top: 7vh;
+  }
+  .LogOutMessage {
+    padding: 1% 2%;
+    border-radius: 0.3vh;
+    background-color: var(--black);
+    color: var(--white);
+    .red {
+      color: var(--red);
+    }
+  }
+}
+.profileInfo{
+    .headerProfile{
+        .ProfileAvatarContainer{
+          width: 10vw;
+          height: 10vw;
+          border-radius: 100%;
+          margin-left: 17.5vw;
+          object-fit: cover;
+          overflow: hidden;
+          position: relative;
+          #ProfileLogo{
+            width: 100%;
+          }
+          #editAvatarButton{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            svg{
+              width: 100%;
+              height: 30%;
+            }
+          }
+        }
+
+        .ProfileAvatarInput{
+          position: absolute;
+          width: 48%;
+          height: fit-content;
+          background-color: var(--bg);
+          border: 0.5vh solid;
+          border-color: var(--color);
+          z-index: 100;
+          top: 0;
+          left: 0;
+          margin-left: 25%;
+          top: 25%;
+          padding: 2% 1%;
+
+          display: flex;
+          flex-direction: column;
+
+          #avatarinput{
+            width: 86%;
+            margin-left: 5%;
+            background-color: var(--input);
+            color: var(--color);
+            padding: 1% 2%;
+            font-size: 5vh;
+            border-color: var(--color);
+            margin-top: 10vh;
+          }
+        }
+
+        #profileName{
+            text-align: center;
+            font-size: 42px;
+        }
+        #profileLogin{
+            text-align: center;
+            opacity: 0.65;
+        }
+        border-bottom: 0.5vh solid;
+        border-color: var(--color);
+        padding-bottom: 2vh;
+    }
+    .profileDescription{
+        font-size: 21px;
+        line-height: 4vh;
+        div{
+            padding: 0.5vh 0;
+            p{
+                opacity: 0.65;
+            }
+            .correctButton{
+                height: 3vh;
+                .pencilSVG{
+                    width: 3vh;
+                    height: 3vh;
+                    path{
+                      fill: var(--color);
+                    }
+                }
+                transition: ease 0.3s;
+            }
+            input{
+                background-color: var(--input);
+                height: 4vh;
+                font-size: 21px;
+                color: var(--color);
+                padding: 0 1vw;
+                letter-spacing: 0.2vh;
+            }
+        }
+    }
+}
+.WiderPopUpProfile{
+    width: 45vw !important;
+    margin-left: 27.5vw !important;
+}
+
+.MyGuitarsInfo{
+  background-color: var(--bg);
+  height: 50vh;
+  padding-top: 2vh;
+
+  .MyGuitarsContainer{
+    width: 100%;
+    height: 17vw;
+    display: flex;
+    justify-content: center;
+
+    .GuitarItem{
+      width: 13vw;
+      height: 22vh;
+      margin-right: 3%;
+      margin-bottom: 2%;
+      height: fit-content;
+      background-color: var(--green);
+  
+      .TitleContainer{
+        width: 100%;
+        border-top: 0.4vh solid;
+        border-color: var(--color);
+        height: fit-content;
+        margin-top: 2%;
+        .TitleItem{
+            font-size: 30px;
+            text-align: center;
+        }
+      }
+      
+      .ImageItem{ 
+        width: 97%;
+        height: 13vw;
+        object-fit: cover;
+
+        border-right: 0.5vh solid;
+        border-left: 0.5vh solid;
+        border-color: var(--color);
+      }
+      .ReadyStatus{
+        color: var(--green);
+        font-size: 20px;
+      }
+      .NotReadyStatus{
+        color: var(--red);
+        font-size: 20px;
+      }
+    }
+  }
+}

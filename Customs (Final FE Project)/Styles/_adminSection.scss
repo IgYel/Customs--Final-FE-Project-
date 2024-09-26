@@ -1,0 +1,187 @@
+.AdminSection {
+  width: 98vw;
+  height: 98vh;
+  background-color: var(--bg);
+  position: relative;
+  padding: 1vh 1vw;
+
+  .AdminButtonsList {
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1vh solid;
+    border-color: var(--color);
+    padding: 2vh 0;
+    font-size: 27px;
+    .AdminButton {
+      border-radius: 5vh;
+      width: fit-content;
+      &:hover {
+        background-color: var(--input);
+        cursor: pointer;
+      }
+    }
+  } //* header in Admin section
+
+  .AdminWindowContent {
+    width: 100%;
+    height: 90%;
+    .ContentSection {
+      width: 100%;
+      height: 100%;
+
+      display: none;
+    }
+
+    #AddGuitarSection {
+      width: 100%;
+      height: 100%;
+      .ContentWrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .ExampleCard {
+        scale: 1.5;
+        width: 13vw;
+        height: 17vw;
+        margin-right: 3%;
+        margin-bottom: 2%;
+        height: fit-content;
+
+        .ExTitleContainer {
+          width: 100%;
+          border-top: 0.4vh solid;
+          border-color: var(--color);
+          height: fit-content;
+          margin-top: 2%;
+          input{
+            color: var(--color);
+            font-size: 24.5px;
+            text-align: center;
+            width: 100%;
+            text-align: left;
+            background-color: var(--bg);
+            letter-spacing: 0.1vw;
+            cursor: text;
+          }
+          #OwnerNameInput{
+            width: fit-content;
+            margin-top: 4vh;
+            font-size: 24.5px;
+          }
+        }
+
+        .ExImageItem {
+          width: 97%;
+          min-height: 13vw;
+          height: 13vw;
+          object-fit: cover;
+
+          border-right: 0.5vh solid;
+          border-left: 0.5vh solid;
+          border-color: var(--color);
+          text-align: center;
+        }
+        select{
+          color: var(--color);
+          font-size: 20px;
+
+          background-color: var(--bg);
+          border: none;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      #FinishButton{
+        position: absolute;
+        bottom: 1vh;
+        margin-top: 5vh;
+
+        background-color: var(--bgR);
+        color: var(--colorR);
+        padding: 1vh;
+        border-radius: 1vw;
+        cursor: pointer;
+      }
+    }
+    #SetStatusSection{
+      .BEguitarElement{
+        width: fit-content;
+        display: flex;
+        height: 70px;
+        padding: 1vh 0;
+        font-size: 30px;
+        img{
+          height: 100%;
+          width: 70px;
+          object-fit: cover;  
+        }
+        p{
+          border-left: 0.5vh solid;
+          border-color: var(--color);
+          padding:0 1vh;
+          text-align: center;
+          align-content: center;
+        }
+        .ChangeStatus{
+          cursor: pointer;
+          color: var(--red);
+        }
+      }
+    }
+    #AddCardSection{
+      .CardInputs{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        input{
+          font-size: 32px;
+          margin: 2vh 0;
+          width: fit-content;
+          background-color: var(--input);
+          letter-spacing: 0.2vw;
+          padding: 0 1vw;
+          border-radius: 0.5vh;
+          cursor: text;
+          color: var(--color);
+        }
+        select{
+          padding: 0 1vw;
+          letter-spacing: 0.2vw;
+          width: fit-content;
+          font-size: 35px;
+          margin: 2vh 0;
+          background-color: var(--bg);
+          border: none;
+          cursor: pointer;
+          color: var(--color);
+        }
+      }
+
+      #AddElementButton{
+        position: absolute;
+        bottom: 3vh;
+        right: 3vw;
+        border-radius: 5vh;
+        border: 0.5vh solid;
+        border-color: var(--color);
+        padding: 1vh 1vw;
+        color: var(--color);
+        font-size: 42px;
+        &:hover{
+          background-color: var(--bgR);
+          color: var(--colorR);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

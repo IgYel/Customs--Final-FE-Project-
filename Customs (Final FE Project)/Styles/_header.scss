@@ -1,0 +1,49 @@
+.HeaderContainer{
+    width: 100vw;
+    height: 56px;
+    position: absolute;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black);
+    z-index: 10;
+    border-bottom: 0.2vw solid;
+    border-color: var(--color);
+    section{
+        display: flex;
+        width: 40%;
+        justify-content: space-around;
+        div{
+            text-align: center;
+            align-content: center;
+            color: var(--white);
+            letter-spacing: 0.3vw;
+            font-size: 21px;
+        }
+        .HeaderButton{
+            @include underline
+            (0, 3px, 10px, auto, var(--white), "margin-left", 'width');
+            a{
+                color: var(--white);
+            }
+        }
+    }
+}
+
+//! Adaptive
+
+@media only screen and (max-width: 1100px) {
+    header{
+        width: 100vw;
+        .HeaderContainer{
+            display: flex;
+            justify-content: space-around;
+            #BestModelsButton{
+                display: none;
+            }
+            #AboutHeaderButton{
+                display: none;
+            }
+        }
+    }
+}
