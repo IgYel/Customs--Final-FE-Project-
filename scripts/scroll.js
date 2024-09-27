@@ -17,8 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const endPosition = () => (hScroll.scrollWidth - window.innerWidth) * (1 / scrollSpeed);
   const endofScroll = () => (hScroll.scrollWidth * 1.13);
 
+  //* add reload if resized scale for PC device
+
+
   window.addEventListener('resize', () => {
-    location.reload();
+    if (window.innerWidth > 1100) {
+      location.reload(); //* reload page
+    }
   });
 
   gsap.to(hScroll, {
