@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customs Page</title>
+    <style class="mainStyle">
+      body{
+        background-color: #161616;
+      }
+      header{
+        visibility: hidden;
+      }
+      main{
+        visibility: hidden;
+      }
+    </style>
+    <script type="module" crossorigin src="/Customs--Final-FE-Project-/assets/index-BrcwJsco.js"></script>
+    <link rel="stylesheet" crossorigin href="/Customs--Final-FE-Project-/assets/index-DZzy8NEr.css">
+  </head>
+
+  <body>
+    <section class="SpinnerContainer">
+      <div class="SpinnerElement">
+        <svg id="Spinner" width="367" height="391" viewBox="0 0 367 391" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M355.842 118.164C355.842 138.967 348.674 165.853 336.291 195.095C323.994 224.132 306.928 254.622 288.01 282.368C269.069 310.147 248.505 334.833 229.35 352.433C219.769 361.237 210.767 368.058 202.702 372.623C194.51 377.26 188.08 379.116 183.421 379.116C170.662 379.116 153.32 370.306 133.337 352.351C113.838 334.83 93.6287 310.235 75.3098 282.502C57.0186 254.81 40.8493 224.349 29.2868 195.314C17.6543 166.104 11 139.121 11 118.164C11 96.9036 15.7365 80.0723 23.8322 66.6565C31.9357 53.2279 43.7873 42.5889 58.9814 34.319C89.7294 17.5834 133.344 11 183.421 11C233.497 11 277.112 17.5834 307.86 34.319C323.055 42.5889 334.906 53.2279 343.01 66.6565C351.105 80.0723 355.842 96.9036 355.842 118.164Z" stroke="#161616" stroke-width="22" stroke-linejoin="round"/>
+        </svg>
+
+        <svg id="SpinnerText" width="700" height="107" viewBox="0 0 700 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M85.5016 99.4997C65.5737 104.542 46.5 104.913 30.0001 97.4999C-4.49996 82 -7.49987 17.3101 39.9999 6.49995C57.4998 2.5173 66.4998 3.49977 85.5016 8.49962" stroke="#161616" stroke-width="7"/>
+          <path d="M130 29.5V81.5C132.333 96.3333 146.5 118.5 184.5 88.5M185.5 29.5V106" stroke="#161616" stroke-width="7"/>
+          <path d="M228.5 98.5C246.5 103.833 282.5 108.5 282.5 84C282.5 52 230.5 85.4999 230.5 49.9999C230.5 20.0002 284.5 36.9999 284.5 36.9999" stroke="#161616" stroke-width="7"/>
+          <path d="M353.5 103C330.5 106 327 93 327 86L327 16.5" stroke="#161616" stroke-width="7"/>
+          <path d="M388 67.5C388 46 397.395 31.5002 420 31.5005C430.549 31.5006 452.5 34.5 452.5 67.5C452.5 92.5 439.907 103 420 103C396 103 388 87.5 388 67.5Z" stroke="#161616" stroke-width="7"/>
+          <path d="M498 105.5V46M498 29.5V46M498 46C509 32 547.6 24.7 548 47.5M548 47.5C548.4 70.3 548 105.5 548 105.5M548 47.5C561 29.5 597.5 25 597.5 47.5C597.5 72.7 597.5 96.1667 597.5 105.5" stroke="#161616" stroke-width="7"/>
+          <path d="M641.5 98.5C659.5 103.833 696.5 108.298 696.5 83.7979C696.5 51.7979 644.5 85.2978 644.5 49.7978C644.5 19.798 698.5 36.7977 698.5 36.7977" stroke="#161616" stroke-width="7"/>
+          <path d="M353.5 32.5H327" stroke="#161616" stroke-width="7"/>
+        </svg>
+      </div>
+    </section>
+  
+    <section class="UserSection">
+
+      <header class="HeaderSection">
+        <div class="HeaderContainer">
+          <section class="firstSection">
+              <div id="allModelsHeader" class="HeaderButton">
+                <span id="allmod"
+                data-lang-en="all models"
+                data-lang-cz="vsechny modely"
+                data-lang-de="alle Modelle"></span>
+                <div class="underLine"></div>
+              </div>
+              <div id="BestModelsButton" class="HeaderButton">
+                <span id="bestmod"
+                data-lang-en="best models"
+                data-lang-cz="nejlepsi modely"
+                data-lang-de="beste Modelle"></span>
+                <div class="underLine"></div>
+              </div>
+          </section>
+          <section class="secondSection">
+              <div id="AboutHeaderButton" class="HeaderButton">
+                <span id="abt"
+                data-lang-en="about us"
+                data-lang-cz="o nas"
+                data-lang-de="über uns"></span>
+                <div class="underLine"></div>
+              </div>
+              <div id="headerloginButton" class="HeaderButton">
+                <span id="cont"
+                data-lang-en="profile"
+                data-lang-cz="profil"
+                data-lang-de="profil"></span>
+                <div class="underLine"></div>
+              </div>
+          </section>
+        </div>
+      </header>
+
+      <main class="main">
+      <section class="MainPage">
+        <div class="MainText">Customs</div>
+        <div class="Lamps">
+        <img id="LampLight" class="Lamp" src="/Customs--Final-FE-Project-/assets/LampLight-BVXuJeT9.svg" alt="">
+        <img id="LampDark" class="Lamp" src="/Customs--Final-FE-Project-/assets/LampDark-C5euj6F6.svg" alt="">
+        <div id="Light"></div>
+        </div>
+        
+        <div class="Quote">
+          <div class="Line1">
+            <span>"</span>
+            <span
+            data-lang-en="Crafted not just for playing,"
+            data-lang-cz="Vytvoreno nejen pro hrani,"
+            data-lang-de="Nicht nur zum Spielen geschaffen,">
+            </span>
+          </div>
+          <div class="Line2">
+            <span
+            data-lang-en="but for the soul within the music."
+            data-lang-cz="ale pro dusi v hudbe."
+            data-lang-de="sondern für die Seele in der Musik.">
+            </span>
+            <span>"</span>
+          </div>
+        </div>
+
+        <div class="languageSwitchButton">
+          <div
+           class="buttonLineContainer">
+           <span
+           data-lang-en="language"
+           data-lang-cz="jazyk"
+           data-lang-de="Sprache"></span>
+            <div class="underLine"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hScrollContainer">
+        <div class="hScrollHeader">
+          <div class="loginIcon">
+            <svg width="62" height="55" viewBox="0 0 62 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M60 53C50.5 33 11 33.5 2 53" stroke="#161616" stroke-width="4" stroke-linecap="round"/>
+              <path d="M30.3473 32C10.2874 31.9999 9.48498 2 30.3473 2C52.0124 2 50.4073 32.0001 30.3473 32Z" stroke="#161616" stroke-width="4"/>
+            </svg>          
+          </div>
+          <div class="asideButton" id="aboutButton">
+          <span
+          data-lang-en="about us"
+          data-lang-cz="o nas"
+          data-lang-de="Über uns"></span>
+            <div class="underLine"></div>
+          </div>
+          <div class="asideButton" id="allModelsButton">
+          <span
+          data-lang-en="all models"
+          data-lang-cz="vsechny modely"
+          data-lang-de="alle Modelle"></span>
+            <div class="underLine"></div>
+          </div>
+          <div id="ArrowButtonID" class="aroowButton">
+            <svg width="61" height="58" viewBox="0 0 61 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 2.16309C6.09528 37.4827 26.8584 49.7767 58.3033 47.9144M58.3033 47.9144L40.1541 37.4692M58.3033 47.9144L41.2478 55.9368" stroke="#161616" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              
+          </div>
+        </div>
+        <div id="hScroll" class="hScroll">
+        </div>
+
+        <div id="TopLine" class="lineBotTop"></div>
+        <div id="botLine" class="lineBotTop"></div>
+      </section>
+
+      <section id="ContactSectionContainer" class="ContactSection">
+        <div class="ContactHeaderContainer">
+          <div class="ContactHeader">
+            <div class="headerTitle"
+            data-lang-en="meet our team"
+            data-lang-cz="seznamte se s nasim tymem"
+            data-lang-de="Lernen Sie unser Team kennen"></div>
+            <div class="headerContButtons">
+              <div class="contactHeaderButton" id="allGuitarsButton">
+                <span
+                data-lang-en="all guitars "
+                data-lang-cz="vsechny kytary"
+                data-lang-de="alle Gitarren"></span>
+                <div class="underLine"></div>
+              </div>
+              <div class="contactHeaderButton" id="bestModels">
+                <span
+                data-lang-en="best models"
+                data-lang-cz="nejlepsi modely"
+                data-lang-de="beste Modelle"></span>
+                <div class="underLine"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="ContactHeaderLine"></div>
+        </div>
+        <div class="contactImageInfo">
+          <img id="TeemImagePC" class="TeamImage" src="/Customs--Final-FE-Project-/assets/Team-Dnf-ggG_.jpg" alt="">
+          <div class="ContactMesureLine"></div>
+          <div class="TextInfo">
+            <div class="Info"
+            data-lang-en="Every instrument we build starts with a deep understanding of your vision. From classic designs to avant-garde innovations, we work closely with you to ensure each guitar or bass is a true reflection of your musical identity. Using only the finest materials and the latest craftsmanship techniques, we bring your dream instrument to life."
+            data-lang-cz="Kazdy nastroj, ktery vyrabime, zacina hlubokym pochopenim vasi vize. Od klasickych navrhu po avantgardni inovace, uzce spolupracujeme s vami, abychom zajistili, ze kazdy kytara nebo baskytara je pravym odrazem vasi hudebni identity. Pouzivame pouze ty nejlepsi materialy a nejnovejsi techniky remeslne vyroby, abychom ozivili vas vysneny nastroj."
+            data-lang-de="Jedes Instrument, das wir bauen, beginnt mit einem tiefen Verständnis Ihrer Vision. Von klassischen Designs bis hin zu avantgardistischen Innovationen arbeiten wir eng mit Ihnen zusammen, um sicherzustellen, dass jede Gitarre oder Bass ein wahres Spiegelbild Ihrer musikalischen Identität ist. Durch die Verwendung der besten Materialien und der neuesten Handwerkstechniken erwecken wir Ihr Trauminstrument zum Leben.">
+            </div>
+            <div class="RequestCallContainer">
+              <div id="CallButtonContainer">
+                <div id="requestCallButton">
+                  <span
+                  data-lang-en="request a call"
+                  data-lang-cz="pozadat o hovor"
+                  data-lang-de="Rufen Sie an"></span>
+                  <div class="underLine"></div>
+                </div>
+              </div>
+              <div id="numberForm">
+                <div class="input">
+                  <div class="Code">+420</div>
+                  <input id="inputNumber" type="text">
+                  <div class="PopUpAlert">
+                    
+                    <div id="notValidSymbol">
+                      <span
+                      data-lang-en="Not Valid Symbol!"
+                      data-lang-cz="Neplatny symbol!"
+                      data-lang-de="Ungültiges Zeichen!"></span>
+                      <br>
+                      <span
+                      data-lang-en="Only numbers are allowed!!!"
+                      data-lang-cz="Pouze cisla jsou povolena!!!"
+                      data-lang-de="Nur Zahlen sind erlaubt!!!"></span>
+                      
+                    </div>
+                    <div id="NotEnoughSymbols">
+                      <span
+                      data-lang-en="Not enough symbols!"
+                      data-lang-cz="Nedostatek symbolu!"
+                      data-lang-de="Nicht genug Zeichen!"></span>
+                      <br>
+                      <span
+                      data-lang-en="Must be 9."
+                      data-lang-cz="Musi jich byt 9."
+                      data-lang-de="Es müssen 9 sein."></span>
+                    </div>
+                    
+                    <div id="ThankYou">
+                      <span
+                      data-lang-en="Thank you for your order!"
+                      data-lang-cz="Dekujeme za vasi objednavku!"
+                      data-lang-de="Vielen Dank für Ihre Bestellung!"></span>
+                      <br>
+                      <span
+                      data-lang-en="We will call you this day."
+                      data-lang-cz="Zavolame vam jeste dnes."
+                      data-lang-de="Wir werden Sie noch heute anrufen."></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="ContactFooterContainer"> 
+          <div id="ContactSectionID" class="ContactFooterLine"></div>
+          <footer class="contactFooter">
+            <div class="rightSide">
+              <div class="slogan"
+              data-lang-en="contact us for more"
+              data-lang-cz="kontaktujte nas pro vice informaci"
+              data-lang-de="Kontaktieren Sie uns für mehr"></div>
+              
+              <div class="socialContainer">
+                <div class="socialElement" id="email">
+                  <svg class="icon" width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.5 2.5H28V20H2.5V9.5M21.5 7L14.5 11.5L2.5 2.5H14" stroke="#EFEBEB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  
+                <div id="emailAdress" class="SocialElText">customs@gmail.com</div>
+              </div>
+              <div class="socialElement" id="phone">
+                <svg width="31" height="34" viewBox="0 0 31 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.7769 19L21.7766 13.5C22.4433 12.5 21.9766 10.9 18.7766 10.5C15.5766 10.1 19.4433 4.66667 21.7766 2C25.4433 2.83333 31.7766 6.2 27.7766 13C23.7766 19.8 18.1099 26.8333 15.7766 29.5C13.6099 31.8333 7.87642 34.9001 2.27659 28.5C0.2768 26.2144 9.77669 19.5 9.77669 21.5C9.94341 22.8333 10.6769 25 12.2769 23" stroke="#EFEBEB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div id="phoneNumber" class="SocialElText">+420 555 444 315</div>
+              </div>
+              <div class="socialElement" id="adress">
+                <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 9.87493C18 -0.624968 2 -0.624984 2 9.87493L10 23.875L14.5 16.875" stroke="#EFEBEB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 8.875H9.5M9.5 8.875L10 9.875L10.5 8.875L10 8.375L9.5 8.875Z" stroke="#EFEBEB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div id="OfficeAdress" class="SocialElText">Dlouha 1074/9, 110 00</div>
+              </div>
+            </div>
+            
+            <div id="emailCopied"
+            data-lang-en="Text copied to clickboard!"
+            data-lang-cz="Text byl zkopirovan do schranky!"
+            data-lang-de="Text in die Zwischenablage kopiert!">
+          </div>
+          
+          <div id="phoneCopied"
+          data-lang-en="Text copied to clickboard!"
+          data-lang-cz="Text byl zkopirovan do schranky!"
+          data-lang-de="Text in die Zwischenablage kopiert!">
+        </div>
+        
+        <div id="adressCopied"
+        data-lang-en="Text copied to clickboard!"
+        data-lang-cz="Text byl zkopirovan do schranky!"
+        data-lang-de="Text in die Zwischenablage kopiert!">
+      </div>
+    </div>
+          <div class="leftSide">
+            <div class="rightSideText"
+            data-lang-en="Whether you’re a professional musician or an avid enthusiast, our commitment to excellence ensures that every Customs instrument delivers unmatched performance and aesthetic appeal. Join the growing community of satisfied players who have discovered the perfect harmony of design, functionality, and craftsmanship with Customs."
+            data-lang-cz="Ať uz jste profesionalni hudebnik, nebo nadsenec, nase zavazek k dokonalosti zajisťuje, ze kazdy nastroj Customs poskytuje neporovnatelny vykon a estetickou pritazlivost. Pripojte se k rostouci komunite spokojenych hracu, kteri objevili dokonalou harmonii designu, funkcnosti a remeslneho zpracovani s Customs."
+            data-lang-de="Ob Sie ein professioneller Musiker oder ein begeisterter Liebhaber sind, unser Engagement für Exzellenz stellt sicher, dass jedes Customs-Instrument eine unvergleichliche Leistung und ästhetische Anziehungskraft bietet. Schließen Sie sich der wachsenden Gemeinschaft zufriedener Spieler an, die die perfekte Harmonie von Design, Funktionalität und Handwerkskunst mit Customs entdeckt haben."></div>
+          </div>
+          </footer>
+        </div>
+      </section>
+      
+      <section class="popUpGuitarContainer">
+        <div class="popUpGuitarsSect">
+          <div class="popUpHeader">
+            <div class="buttons">
+              <div id="sortButton" class="popUpHeaderButton">
+                <span
+                data-lang-en="sort by"
+                data-lang-cz="seradit podle"
+                data-lang-de="sortieren nach"></span>
+                <div class="underLine"></div>
+              </div>
+              <div id="categoryButton" class="popUpHeaderButton">
+              <span
+              data-lang-en="category"
+              data-lang-cz="kategorie"
+              data-lang-de="Kategorie"></span>
+                <div class="underLine"></div>
+              </div>
+              <div id="filtersButton" class="popUpHeaderButton">
+              <span
+              data-lang-en="filters"
+              data-lang-cz="filtry"
+              data-lang-de="Filter"></span>
+                <div class="underLine"></div>
+              </div>
+            </div>
+            
+            <div class="rightSideHeader">
+              <div id="popupHeaderMesureLine"></div>
+              <div id="popUpHeaderClose">
+              <svg id="cross" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2L52 52M52 2L2 52" stroke="#CD4F4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+            </div>
+          </div>
+          </div>
+          
+          <div class="popUpPropsContainer">
+            <div id="sortProp" class="Props">
+              <div class="Property" id="nameProp">
+              <span
+              data-lang-en="name"
+              data-lang-cz="nazev"
+              data-lang-de="Name"></span>
+                <div class="underLine"></div>
+              </div>
+              <div class="Property" id="ageProp">
+              <span
+              data-lang-en="new/old"
+              data-lang-cz="novy/stary"
+              data-lang-de="neu/alt"></span>
+                <div class="underLine"></div>
+              </div>
+              <div class="Property" id="modelProp">
+              <span
+              data-lang-en="model"
+              data-lang-cz="model"
+              data-lang-de="Modell"></span>
+                <div class="underLine"></div>
+              </div>
+            </div>
+            <div id="categoryProp" class="Props">
+              <div class="Property" id="guitarsModels">
+              <span
+              data-lang-en="guitars"
+              data-lang-cz="kytary"
+              data-lang-de="Gitarren"></span>
+                <div class="underLine"></div>
+              </div>
+              <div class="Property" id="bassModels">
+                <span
+                data-lang-en="bass guitars"
+                data-lang-cz="basove kytary"
+                data-lang-de="Bass-Gitarren"></span>
+                <div class="underLine"></div>
+              </div>
+            </div>
+            <div id="filtersProp" class="Props">
+              <div class="Property">
+                <div class="nameSelectProp">model</div>
+                <select id="selectModel">
+                  <option value="none"
+                  data-lang-en="any model"
+                  data-lang-cz="jakykoli model"
+                  data-lang-de="jedes Modell"></option>
+                  <option value="TC">Telecaster</option>
+                  <option value="St">Stratocaster</option>
+                  <option value="LP">Les Paul</option>
+                  <option value="Sta">Star (Jaxon)</option>
+                  <option value="PB">P-Bass</option>
+                  <option value="JB">J-Bass</option>
+                  <option value="SA">Semi-Acroustic</option>
+                  <option value="SG">SG</option>
+                </select>
+              </div>
+              <div class="Property">
+                <div class="nameSelectProp"
+                data-lang-en="year"
+                data-lang-cz="rok"
+                data-lang-de="Jahr"></div>
+                <select id="selectYear">
+                  <option value="none"
+                  data-lang-en="any year"
+                  data-lang-cz="jakykoli rok"
+                  data-lang-de="jedes Jahr"></option>
+                  <option value="1983">1983</option>
+                  <option value="1995">1995</option>
+                  <option value="2002">2002</option>
+                  <option value="2006">2006</option>
+                  <option value="2012">2012</option>
+                </select>
+              </div>
+              <div class="Property">
+                <div class="nameSelectProp"
+                data-lang-en="wood"
+                data-lang-cz="drevo"
+                data-lang-de="Holz"></div>
+                <select id="selectWood">
+                  <option value="none"
+                  data-lang-en="any wood"
+                  data-lang-cz="jakekoliv drevo"
+                  data-lang-de=" jedes Holz"></option>
+                  <option value="Maple">Maple</option>
+                  <option value="Mahogany">Mahogany</option>
+                  <option value="Rosewood">Rosewood</option>
+                </select>
+              </div>
+              <div class="Property">
+                <div class="nameSelectProp"
+                data-lang-en="guitarist"
+                data-lang-cz="kytarista"
+                data-lang-de="Gitarrist"></div>
+                <select id="selectGuitarist">
+                  <option value="none"
+                  data-lang-en="any guitarist"
+                  data-lang-cz="jakykoli kytarista"
+                  data-lang-de="jeder Gitarristy"></option>
+                  <option value="Joe Fredrix">Joe Fredrix</option>
+                  <option value="Kraven Schwarzstahl">Kraven Schwarzstahl</option>
+                  <option value="Jacky Hammett">Jacky Hammett</option>
+                  <option value="Freddie Madisson">Freddie Madisson</option>
+                  <option value="Jaxon Malone">Jaxon Malone</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!--! Container -->
+          
+          <div class="allItemsContainer">
+
+            <!--? Example element -->
+
+          </div>
+        </div>
+      </section>
+
+      <div class="PreviewImageBackGround">
+        <img class="Preview" src="" alt="Preview Image"></img>
+      </div>
+
+      <div class="OpenItemContainer">
+        <div class="ItemWindow">
+          <div class="leftSide">
+            <div class="ImageLogoContainer">
+              <img class="ImageLogo" src="" alt="Image"></img>
+            </div>
+            <div class="imagesSwtich">
+              <div id="firstImage" class="imageSwitchButton"></div>
+              <div id="secondImage" class="imageSwitchButton"></div>
+              <div id="thirdImage" class="imageSwitchButton"></div>
+            </div>
+          </div>
+
+          <div class="rightSide">
+            <p id="Paragraph"></p>
+            <p id="quoteOfParagraph"></p>
+            <div>
+              <p id="guitarist"></p>
+              <p id="nameOfItem"></p>
+            </div>
+          </div>
+        </div>
+          
+      </div>
+      
+      <div class="cursorContainer">
+        <div id="cursor">
+          <svg id="cursorArrow" width="373" height="376" viewBox="0 0 373 376" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M80.2991 342.695C15.3874 277.784 -23.723 62.1194 17.6982 20.6982C65.9305 -27.5341 274.784 18.3875 339.695 83.2992C404.607 148.211 365.182 224.922 293.552 296.552C221.922 368.182 145.211 407.607 80.2991 342.695Z" fill="#161616"/>
+          </svg>
+        
+          <svg id="cursorlight" width="217" height="249" viewBox="0 0 217 249" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M75 156C75 153.791 76.7909 152 79 152H135C137.209 152 139 153.791 139 156V208C139 210.209 137.209 212 135 212H79C76.7909 212 75 210.209 75 208V156Z" fill="#D9D9D9"/>
+          <path d="M75.8721 220.348C74.9591 217.74 76.9028 215.014 79.6662 215.027L134.316 215.282C137.084 215.295 139.003 218.049 138.056 220.65L128.991 245.56C128.438 247.081 127.022 248.118 125.405 248.188L106.577 249L88.2814 248.192C86.6479 248.12 85.2227 247.061 84.6825 245.518L75.8721 220.348Z" fill="#D9D9D9"/>
+          <path d="M171 111.5C171 146.57 142.57 195 107.5 195C72.4299 195 44 146.57 44 111.5C44 76.4299 72.4299 48 107.5 48C142.57 48 171 76.4299 171 111.5Z" fill="#D9D9D9"/>
+          <path d="M107 33V8" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          <path d="M66.5 41.6506L54 20" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          <path d="M147 41.6506L159.5 20" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          <path d="M43.6506 70.5L22 58" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          <path d="M178 71.5L199.651 59" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          <path d="M33 109L8 109" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          <path d="M184 109H209" stroke="#D9D9D9" stroke-width="15" stroke-linecap="round"/>
+          </svg> 
+        </div>
+      </div>
+
+      <section class="RegisterContainer">
+        <div class="InsideContainer">
+        
+          <div class="LogRegWindow">
+          <div class="LoginRegisterForms">
+
+            <form id="NameForm">
+              <div class="labelforInput">Name</div>
+              <input id="nameInput" type="text">
+              <div id="errorName" class="errorMessage">
+
+              </div>
+            </form>
+
+            <form>
+              <div class="labelforInput">Login</div>
+              <input id="LoginInput" type="text">
+              <div id="errorLogin" class="errorMessage">
+
+              </div>
+            </form>
+
+            <form>
+              <div class="labelforInput">Password</div>
+              <div class="InputPassword">
+                <input id="passwordInput" type="password">
+                <div class="eye">
+                  <svg class="SVGEye" id="eyeOpen" width="88" height="73" viewBox="0 0 88 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="44" cy="37" r="15" fill="#161616"/>
+                    <path d="M5.67254 40.2118C4.88592 39.5089 4.23313 38.8955 3.72623 38.4053C4.24688 37.8255 4.93331 37.0834 5.77103 36.2252C7.87128 34.0736 10.9109 31.2048 14.662 28.3393C22.2118 22.5723 32.4068 17 43.5 17C54.5932 17 64.7882 22.5723 72.338 28.3393C76.0891 31.2048 79.1287 34.0736 81.229 36.2252C82.0667 37.0834 82.7531 37.8255 83.2738 38.4053C82.7669 38.8955 82.1141 39.5089 81.3275 40.2118C79.2308 42.0855 76.1935 44.5865 72.443 47.0857C64.9067 52.1076 54.6744 57 43.5 57C32.3256 57 22.0933 52.1076 14.557 47.0857C10.8065 44.5865 7.76925 42.0855 5.67254 40.2118Z" stroke="#161616" stroke-width="4"/>
+                    <path d="M64.5 15.5L71.5 9.94443M44 12.0568L44 8.44564L44 4.00119M23.5 15.5L17.5 9.94444" stroke="black" stroke-width="4" stroke-linecap="round"/>
+                  </svg>
+                                                        
+                  <svg class="SVGEye" id="eyeClose" width="88" height="73" viewBox="0 0 88 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M88 38.5C88 38.5 68.9721 59 45.5 59C22.0279 59 3 38.5 3 38.5C3 38.5 3.70104 38.9974 5 39.8012C10.4684 43.1851 26.5333 52 45.5 52C65.0601 52 81.5339 42.625 86.4819 39.5C87.4714 38.875 88 38.5 88 38.5Z" fill="#161616"/>
+                    <path d="M26 57.5L19 62.5M46 61.75V65V69M66.5 57.5L69.5 60L72.5 62.5" stroke="black" stroke-width="4" stroke-linecap="round"/>
+                  </svg>                                           
+                </div>
+              </div>
+              <div id="errorPassword" class="errorMessage">
+
+              </div>
+            </form>
+          </div>
+
+          <div id="succesWindow" class="succes"></div>
+
+          <div id="SubmitButton">
+            <span
+            data-lang-en="submit"
+            data-lang-cz="odeslat"
+            data-lang-de="einreichen">
+            </span>
+            <div class="underLine"></div>
+          </div>
+
+          <div class="buttonsLogReg">
+            <div id="LoginButton" class="LogRegButton">
+              <span
+              data-lang-en="login"
+              data-lang-cz="prihlasit se"
+              data-lang-de="anmelden"></span>
+              <div id="loginButtonUnderline" class="underLine"></div>
+            </div>
+            <div id="RegisterButton" class="LogRegButton">
+              <span
+              data-lang-en="register"
+              data-lang-cz="registrovat se"
+              data-lang-de="registrieren"></span>
+              <div id="RegisterButtonUnderline" class="underLine"></div>
+            </div>
+          </div>
+          </div>
+
+          <div class="ProfileWindow">
+
+            <div class="ButtonsProfileContainer">
+              <div class="profileWindowButton" id="ProfileButton">
+                <span
+                data-lang-en="Profile"
+                data-lang-cz="Profil"
+                data-lang-de="Profil"></span>
+                <div class="underLine"></div>
+              </div>
+              
+              <div class="profileWindowButton" id="MyGuitarsButton">
+                <span
+                data-lang-en="Ordered guitars"
+                data-lang-cz="Objednane kytary"
+                data-lang-de="bestellte Gitarren"></span>
+                <div class="underLine"></div>
+              </div>
+
+              <div class="profileWindowButton" id="AdminWindow">
+                <span
+                data-lang-en="Open Admin Panel"
+                data-lang-cz="Otevřít administrační panel"
+                data-lang-de="Admin-Panel öffnen"></span>
+                <div class="underLine"></div>
+              </div>
+
+              <div class="profileWindowButton" id="LogOutButton">
+                <span
+                data-lang-en="Log Out"
+                data-lang-cz="Odhlasit se"
+                data-lang-de="Abmelden"></span>
+                <div class="underLine"></div>
+              </div>
+            </div>
+            
+            <div class="LogOutMessage">
+                <span
+                data-lang-en="Are You sure that you want to"
+                data-lang-cz="Jste si jisty, ze chcete"
+                data-lang-de="Sind Sie sicher, dass Sie möchten"></span>
+                <span id="LogOutAcceptButton" class="red"
+                data-lang-en="log out"
+                data-lang-cz="odhlasit se"
+                data-lang-de="abmelden"></span>
+                <span>?</span>
+            </div>
+            
+            <div class="profileInfo">
+
+              <div class="headerProfile">
+                <div class="ProfileAvatarContainer">
+                  <img id="ProfileLogo" src="" alt="">
+                  <div id="editAvatarButton">
+                    <svg width="127" height="95" viewBox="0 0 127 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M124 31.75V65C124 72.1559 123.994 77.221 123.478 81.0593C122.973 84.8114 122.032 86.9389 120.485 88.4853C118.939 90.0317 116.811 90.9731 113.059 91.4776C109.221 91.9936 104.156 92 97 92H30C22.8441 92 17.779 91.9936 13.9407 91.4776C10.1886 90.9731 8.06111 90.0317 6.51472 88.4853C4.96833 86.9389 4.02687 84.8114 3.52242 81.0593C3.00637 77.221 3 72.1559 3 65V32C3 28.1287 3.01653 26.661 3.26223 25.5051C4.24761 20.8692 7.86921 17.2476 12.5051 16.2622C13.661 16.0165 15.1287 16 19 16H37.5768C39.258 16 40.6561 14.788 40.9452 13.1901L44.4312 3.89419C44.5201 3.65708 44.7468 3.5 45 3.5H82C82.5446 3.5 83.0313 3.83968 83.2192 4.3508L86.5779 13.4885C86.9 14.9259 88.1838 16 89.7184 16H108.25C111.879 16 113.255 16.0145 114.341 16.2306C119.101 17.1775 122.823 20.8986 123.769 25.6589C123.985 26.7451 124 28.1213 124 31.75Z" stroke="#EFEBEB" stroke-width="6"/>
+                      <circle cx="63.5" cy="51.5" r="22.5" stroke="#EFEBEB" stroke-width="6"/>
+                      <circle cx="107.5" cy="30.5" r="3" stroke="#EFEBEB" stroke-width="3"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                <div class="ProfileAvatarInput">
+                  <div
+                  data-lang-en="input URL of your avatar"
+                  data-lang-cz="zadejte URL vasi avatary"
+                  data-lang-de="geben Sie die URL Ihres Avatars ein">
+                  </div>
+
+                  <input id="avatarinput" type="url">
+                </div>
+
+                <div id="profileName"></div>
+                <div id="profileLogin"></div>
+              </div>
+
+              <div class="profileDescription">
+                
+                <div class="ProfileUserName">
+                  <p
+                  data-lang-en="name:"
+                  data-lang-cz="jmeno:"
+                  data-lang-de="Name"></p>
+                  <span id="profileInfoName"></span>
+                  <input id="ProfileNameInput" type="text" placeholder="input">
+
+                  <span id="correctName" class="correctButton">
+                    <svg class="pencilSVG" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M37.4766 8.53572C39.4293 6.5831 39.4293 3.41727 37.4766 1.46465C35.524 -0.487969 32.3582 -0.487969 30.4056 1.46465L37.4766 8.53572ZM34.6482 11.3641L37.4766 8.53572L30.4056 1.46465L27.5771 4.29308L34.6482 11.3641Z" fill="#161616"/>
+                      <path d="M3.57232 35.4427L7.77815 24.0922L27 5L34 12L14.8492 31.1632L3.57232 35.4427Z" fill="#161616"/>
+                    </svg>                                          
+                  </span>
+                </div>
+
+                <div class="ProfileCoutry">
+                  <p
+                  data-lang-en="country:"
+                  data-lang-cz="zeme:"
+                  data-lang-de="Land:"></p>
+                  <span id="profileInfoCountry"></span>
+                  <input id="ProfileAdressInput" type="text" placeholder="input">
+
+                  <span id="correctAdress" class="correctButton">
+                    <svg class="pencilSVG" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M37.4766 8.53572C39.4293 6.5831 39.4293 3.41727 37.4766 1.46465C35.524 -0.487969 32.3582 -0.487969 30.4056 1.46465L37.4766 8.53572ZM34.6482 11.3641L37.4766 8.53572L30.4056 1.46465L27.5771 4.29308L34.6482 11.3641Z" fill="#161616"/>
+                      <path d="M3.57232 35.4427L7.77815 24.0922L27 5L34 12L14.8492 31.1632L3.57232 35.4427Z" fill="#161616"/>
+                    </svg>                                          
+                  </span>
+                </div>
+
+                <div class="ProfilePhone">
+                  <p
+                  data-lang-en="phone number:"
+                  data-lang-cz="telefonni cislo:"
+                  data-lang-de="Telefonnummer:"></p>
+                  <span id="profileInfoPhone"></span>
+                  <input id="ProfilePhoneInput" type="text" placeholder="input">
+
+                  <span id="correctPhone" class="correctButton">
+                    <svg class="pencilSVG" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M37.4766 8.53572C39.4293 6.5831 39.4293 3.41727 37.4766 1.46465C35.524 -0.487969 32.3582 -0.487969 30.4056 1.46465L37.4766 8.53572ZM34.6482 11.3641L37.4766 8.53572L30.4056 1.46465L27.5771 4.29308L34.6482 11.3641Z" fill="#161616"/>
+                      <path d="M3.57232 35.4427L7.77815 24.0922L27 5L34 12L14.8492 31.1632L3.57232 35.4427Z" fill="#161616"/>
+                    </svg>                                          
+                  </span>
+                </div>
+
+                <div class="ProfileEmail">
+                  <p>email:</p>
+                  <span id="profileInfoEmail"></span>
+                  <input id="ProfileEmailInput" type="email" placeholder="input">
+                  
+                  <span id="correctEmail" class="correctButton">
+                    <svg class="pencilSVG" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M37.4766 8.53572C39.4293 6.5831 39.4293 3.41727 37.4766 1.46465C35.524 -0.487969 32.3582 -0.487969 30.4056 1.46465L37.4766 8.53572ZM34.6482 11.3641L37.4766 8.53572L30.4056 1.46465L27.5771 4.29308L34.6482 11.3641Z" fill="#161616"/>
+                      <path d="M3.57232 35.4427L7.77815 24.0922L27 5L34 12L14.8492 31.1632L3.57232 35.4427Z" fill="#161616"/>
+                    </svg>                                          
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!--? Container for ordered guitars -->
+            <div class="MyGuitarsInfo">
+              <div class="MyGuitarsContainer">
+                <!-- guitars of user here -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      </main>
+    </section>
+    
+    <section class="AdminSection">
+      <div class="AdminButtonsList">
+        <div class="AdminButton" id="AddGuitar">Add new guitar to order list</div>
+        <div class="AdminButton" id="SetStatus">Set new status for guitar in list</div>
+        <div class="AdminButton" id="AddCard">Add a card in All modell`s section</div>
+      </div>
+      <div class="AdminWindowContent">
+
+        <div class="ContentSection" id="AddGuitarSection">
+          <div class="ContentWrapper">
+
+            <div class="ExampleCard">
+              
+              <img class="ExImageItem" src="" alt="Image of guitar here">
+              <div class="ExTitleContainer">
+                <input id="TitleItemInput" placeholder="input name">
+                <select id="StatusInput">
+                  <option value="none">select status</option>
+                  <option value="ready">ready</option>
+                  <option value="notReady">not ready</option>
+                </select>
+                <input id="OwnerNameInput" type="text" placeholder="Input Owner's name">
+                <select id="imageLinkInput" type="text" placeholder="Choose logo photo">
+                  <option value="none">select image</option>
+                </select>
+              </div>
+              
+            </div>
+            
+            <div id="FinishButton">
+              Add this guitar
+            </div>
+          </div>
+        </div>
+
+        <div class="ContentSection" id="SetStatusSection">
+          <!--* elements here -->
+        </div>
+
+        <div class="ContentSection" id="AddCardSection">
+          <form class="CardInputs">
+            <input id="inputName" type="text" placeholder="model">
+            <input id="inputDescription" type="text" placeholder="description">
+            <input id="inputQuote" type="text" placeholder="quote">
+            <input id="inputGuitarist" type="text" placeholder="name of guitarist">
+
+            <select id="selectType">
+              <option value="guitar">type: guitar</option>
+              <option value="bass">type: bass</option>
+            </select>
+
+            <input id="wood" type="text" placeholder="wood">
+            <input id="imgFront" type="text" placeholder="image">
+            <input id="imgDeck" type="text" placeholder="image of deck">
+            <input id="imgHeadstock" type="text" placeholder="image of head">
+            <input id="modelType" type="text" placeholder="model type">
+          </form>
+
+          <div id="AddElementButton">add guitar element</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--* loader script -->
+    <script>
+      window.addEventListener('load', function() {
+        // Скрываем спиннер
+        const spinner = document.querySelector('.SpinnerContainer');
+
+        // Показываем основной контент
+        const header = document.querySelector('header');
+        const content = document.querySelector('main');
+
+        content.style.visibility = 'visible';
+        header.style.visibility = 'visible';
+        
+        setTimeout(function(){
+          spinner.classList.add('HideSpinner');
+        }, 1200);
+      });
+    </script>
+  </body>
+</html>
