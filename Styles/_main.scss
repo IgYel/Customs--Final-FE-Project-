@@ -302,26 +302,25 @@
           padding: 1%;
           font-size: 55px;
           letter-spacing: 0.8vw;
-          background-color: var(--phoneNumber);
           display: flex;
           justify-content: space-between;
           border-radius: 0.15vw;
-          min-width: 110%;
+          width: fit-content;
+          *{
+            border-radius: 1vw;
+          }
           .Code {
-            font-weight: 500;
-            width: 25%;
+            font-size: 40px;
+            text-align: center;
+            align-content: center;
+            background-color: var(--input);
+            margin-right: 1vh;
           }
-          .MesureLine {
-            height: 100%;
-            border-radius: 5vw;
-            background-color: var(--bgR);
-            width: 0.5%;
-          }
-          input {
+          #inputNumber {
+            width: 75%;
             background-color: var(--phoneNumber);
-            font-size: 45px;
+            font-size: 40px;
             letter-spacing: 15px;
-            width: 65%;
             font-weight: 300;
             color: var(--color);
           }
@@ -606,7 +605,7 @@
 .arrowHint{
   position: absolute;    
   top: 33%;
-  left: 46%;
+  left: 22%;
   height: 200px;
   width: 200px;
   opacity: 0.3;
@@ -655,6 +654,9 @@
     width: 27vh !important;
     filter: blur(10vh) !important;
   }
+  .arrowHint{
+    left: 42%;
+  }
   .languageSwitchButton{
     margin-bottom: -3vh;
   }
@@ -667,7 +669,9 @@
   main {
     overflow: hidden;
   }
+  
   .hScrollContainer {
+    border: none;
     left: 0vw !important;
     overflow-y: hidden;
     overflow-x: auto;
@@ -675,6 +679,13 @@
     border-color: var(--color);
     #hScroll{
       width: 850%;
+      border: 0.5vh solid;
+      border-color: var(--color);
+      border-right: none;
+      border-left: none;
+    }
+    .lineBotTop{
+      display: none;
     }
     .hScrollHeader {
       margin: 10vh 0;
@@ -734,7 +745,7 @@
     width: 100%;
     .Info {
       width: 100%;
-      font-size: 23px !important;
+      font-size: 2.4vh !important;
     }
     .TextInfo{
       width: 80% !important;
@@ -758,17 +769,24 @@
       .input {
         width: 96% !important;
         min-width: 96% !important;
-        height: 15px;
+        height: fit-content !important;
+        background-color: transparent !important;
         .Code{
           width: 30% !important;
           text-align: center;
           align-content: center;
-          font-size: 25px;
+          font-size: 25px !important;
+          background-color: var(--input);
+          border-radius: 1vh;
+          margin-right: 1vw;
+          height: 40px;
         }
         #inputNumber {
-          width: 70% !important;
-          font-size: 25px;
-          letter-spacing: 8px;
+          font-size: 25px !important;
+          letter-spacing: 5px !important;
+          background-color: var(--phoneNumber);
+          height: 40px;
+          padding: 0 1vw;
         }
       }
     }

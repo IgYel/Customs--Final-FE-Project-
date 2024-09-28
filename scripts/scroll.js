@@ -8,38 +8,42 @@ gsap.registerPlugin(ScrollToPlugin);
 
 let endOfScroller = 0;
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const hScrollContainer = document.querySelector('.hScrollContainer');
-//   const hScroll = document.querySelector('.hScroll');
 
-//   const scrollSpeed = 0.7;
+document.addEventListener('DOMContentLoaded', () => {
+  let isPC = true;
+  if(window.innerWidth > 1100) isPC = true;
 
-//   const endPosition = () => (hScroll.scrollWidth - window.innerWidth) * (1 / scrollSpeed);
-//   const endofScroll = () => (hScroll.scrollWidth * 1.13);
+  if (window.innerWidth > 1100){
+    const hScrollContainer = document.querySelector('.hScrollContainer');
+    const hScroll = document.querySelector('.hScroll');
+    const scrollSpeed = 0.7;
+  
+    const endPosition = () => (hScroll.scrollWidth - window.innerWidth) * (1 / scrollSpeed);
+    const endofScroll = () => (hScroll.scrollWidth * 1.13);
 
-//   //* add reload if resized scale for PC device
+    gsap.to(hScroll, {
+      x: () => -(hScroll.scrollWidth - window.innerWidth),
+      ease: "none",
+      scrollTrigger: {
+        trigger: hScrollContainer,
+        start: "top top",
+        end: () => `+=${endPosition()}`,
+        scrub: 1,
+        pin: true,
+      }
+    });
+    endOfScroller = endofScroll;
+  }
 
+  //* add reload if resized scale for PC device
 
-//   window.addEventListener('resize', () => {
-//     if (window.innerWidth > 1100) {
-//       location.reload(); //* reload page
-//     }
-//   });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1100) {
+      location.reload(); //* reload page
+    }
+  });
 
-//   gsap.to(hScroll, {
-//     x: () => -(hScroll.scrollWidth - window.innerWidth),
-//     ease: "none",
-//     scrollTrigger: {
-//       trigger: hScrollContainer,
-//       start: "top top",
-//       end: () => `+=${endPosition()}`,
-//       scrub: 1,
-//       pin: true,
-//     }
-//   });
-//   endOfScroller = endofScroll;
-// });
-
+});
 // //*Mobile header scroll code
 
 // Scroll to for GSAP
