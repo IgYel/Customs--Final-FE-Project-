@@ -8,110 +8,39 @@ gsap.registerPlugin(ScrollToPlugin);
 
 let endOfScroller = 0;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const hScrollContainer = document.querySelector('.hScrollContainer');
-  const hScroll = document.querySelector('.hScroll');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const hScrollContainer = document.querySelector('.hScrollContainer');
+//   const hScroll = document.querySelector('.hScroll');
 
-  const scrollSpeed = 0.7;
+//   const scrollSpeed = 0.7;
 
-  const endPosition = () => (hScroll.scrollWidth - window.innerWidth) * (1 / scrollSpeed);
-  const endofScroll = () => (hScroll.scrollWidth * 1.13);
+//   const endPosition = () => (hScroll.scrollWidth - window.innerWidth) * (1 / scrollSpeed);
+//   const endofScroll = () => (hScroll.scrollWidth * 1.13);
 
-  //* add reload if resized scale for PC device
+//   //* add reload if resized scale for PC device
 
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1100) {
-      location.reload(); //* reload page
-    }
-  });
+//   window.addEventListener('resize', () => {
+//     if (window.innerWidth > 1100) {
+//       location.reload(); //* reload page
+//     }
+//   });
 
-  gsap.to(hScroll, {
-    x: () => -(hScroll.scrollWidth - window.innerWidth),
-    ease: "none",
-    scrollTrigger: {
-      trigger: hScrollContainer,
-      start: "top top",
-      end: () => `+=${endPosition()}`,
-      scrub: 1,
-      pin: true,
-    }
-  });
-  endOfScroller = endofScroll;
-});
+//   gsap.to(hScroll, {
+//     x: () => -(hScroll.scrollWidth - window.innerWidth),
+//     ease: "none",
+//     scrollTrigger: {
+//       trigger: hScrollContainer,
+//       start: "top top",
+//       end: () => `+=${endPosition()}`,
+//       scrub: 1,
+//       pin: true,
+//     }
+//   });
+//   endOfScroller = endofScroll;
+// });
 
-//*Mobile header scroll code
-
-function handleResize() {
-  if (window.innerWidth <= 1100) {
-    let lastScrollX = 0; // Для хранения последнего значения translateX
-    let scrollDirection = ''; // Направление скролла (forward - вниз, backward - вверх)
-    let lastTranslate; // Переменная, обновляющаяся при начале скролла
-    let forwardUpdated = false; // Флаг для скролла вперёд
-    let backwardUpdated = false; // Флаг для скролла назад
-    
-    function updateScrollPosition() {
-      const hScroll = document.querySelector('#hScroll');
-      const hScrollHeader = document.querySelector('.hScrollHeader');
-      let currentHeaderTranslate = 0;
-    
-      // Получаем текущее значение translateX из transform
-      const style = window.getComputedStyle(hScroll);
-      const matrix = new WebKitCSSMatrix(style.transform); // Читаем текущее значение transform
-      const currentTranslateX = Math.abs(matrix.m41); // Получаем X координату (m41 для matrix3d)
-    
-      //* Скролл идёт вперёд
-      if (lastScrollX < currentTranslateX) {
-        scrollDirection = 'forward';
-    
-        // Обновляем lastTranslate только при начале скролла вперёд
-        if (!forwardUpdated) {
-          lastTranslate = currentTranslateX;
-          forwardUpdated = true;
-          backwardUpdated = false; // Сбрасываем флаг для обратного скролла
-        }
-    
-        if (lastTranslate >= (currentTranslateX - 150)) {
-          currentHeaderTranslate = currentTranslateX - lastTranslate;
-          hScrollHeader.style.left = `-${currentHeaderTranslate}px`;
-        } else if (lastTranslate < (currentTranslateX - 150)) {
-          hScrollHeader.style.left = `-30vw`;
-        }
-      }
-    
-      //* Скролл идёт назад
-      else if (currentTranslateX < lastScrollX) {
-        scrollDirection = 'backward';
-    
-        // Обновляем lastTranslate только при начале скролла назад
-        if (!backwardUpdated) {
-          lastTranslate = currentTranslateX;
-          backwardUpdated = true;
-          forwardUpdated = false; // Сбрасываем флаг для скролла вперёд
-        }
-        hScrollHeader.style.left = `${lastTranslate - (lastScrollX + 150)}px`;
-        if ((lastTranslate - (lastScrollX + 150)) > 0) {
-          hScrollHeader.style.left = '0';
-        }
-      }
-    
-      // Сохраняем последнее значение translateX
-      lastScrollX = currentTranslateX;
-    
-      // Чтобы обновления происходили при скролле
-      requestAnimationFrame(updateScrollPosition);
-    }
-    
-    // Запускаем отслеживание при загрузке страницы
-    document.addEventListener('DOMContentLoaded', () => {
-      updateScrollPosition();
-    });
-  }
-}
-
-handleResize();
-window.addEventListener('resize', handleResize);
-
+// //*Mobile header scroll code
 
 // Scroll to for GSAP
 function scrollTo(Element){
@@ -172,3 +101,32 @@ document.querySelector('#ArrowButtonID').onclick = () =>{
 }
 
 export default{};
+const hScrollHeader = document.querySelector('.hScrollHeader');
+hScrollHeader.classList.add('headerHide');
+
+let startX = 0;
+let endX = 0;
+const threshold = 50; // Минимальная длина свайпа, чтобы считать его валидным
+
+document.addEventListener('touchstart', function (event) {
+  startX = event.touches[0].clientX; // Считываем начальную точку по оси X
+}, false);
+
+document.addEventListener('touchend', function (event) {
+  endX = event.changedTouches[0].clientX; // Считываем конечную точку по оси X
+  handleSwipe(); // Вызываем функцию обработки свайпа
+}, false);
+
+function handleSwipe() {
+  const diffX = endX - startX;
+
+  if (Math.abs(diffX) > threshold) {
+    if (diffX > 0) {
+      // Свайп вправо
+      hScrollHeader.classList.remove('headerHide');
+    } else {
+      // Свайп влево
+      hScrollHeader.classList.add('headerHide');
+    }
+  }
+}

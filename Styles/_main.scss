@@ -610,7 +610,7 @@
     visibility: hidden;
   } //* Turn off cursor
   .PreviewImageBackGround{
-    display: none;
+    display: none !important;
   }
 
   .MainText {
@@ -641,28 +641,29 @@
   main {
     overflow: hidden;
   }
-  .pin-spacer {
-    .hScrollContainer {
-      left: 0vw !important;
-      .hScrollHeader {
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: none;
-        background-color: var(--mobileBlur);
-      }
-      .hScroll {
-        #Item5,
-        #Item6,
-        #Item7,
-        #Item8 {
-          display: none;
-        }
-        #Item1 {
-          margin-left: 30vw;
-        }
-      }
+  .hScrollContainer {
+    left: 0vw !important;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border-bottom: 0.5vh solid;
+    border-color: var(--color);
+    #hScroll{
+      width: 850%;
     }
+    .hScrollHeader {
+      // display: none !important;
+      padding: 3%;
+      left: 0;
+      width: 10%;
+      height: 97%;
+      border-top: none;
+      border-bottom: none;
+      position: fixed;
+    }
+  }
+  .headerHide{
+    margin-left: -20vw !important;
+    transition: 0.15s ease-in-out;
   }
 
   //* Contact section
