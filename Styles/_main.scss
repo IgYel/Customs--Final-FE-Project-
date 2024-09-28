@@ -609,11 +609,18 @@
   .cursorContainer {
     visibility: hidden;
   } //* Turn off cursor
+  .PreviewImageBackGround{
+    display: none;
+  }
 
   .MainText {
     font-size: 20vw !important;
     top: 7vh !important;
     right: 1vw !important;
+  }
+  .Lamps{
+    scale: 0.7;
+    margin-top: 20%;
   }
   #Light {
     top: 58vh !important;
@@ -621,6 +628,9 @@
     height: 27vh !important;
     width: 27vh !important;
     filter: blur(10vh) !important;
+  }
+  .languageSwitchButton{
+    margin-bottom: -3vh;
   }
   .Quote {
     width: 90vw;
