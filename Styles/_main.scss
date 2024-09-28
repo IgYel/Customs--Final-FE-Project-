@@ -661,7 +661,8 @@
     margin-bottom: -3vh;
   }
   .Quote {
-    width: 90vw;
+    width: 80vw;
+    font-size: 18px !important;
     margin-bottom: 10vh !important;
   }
 
@@ -704,6 +705,10 @@
 
   //* Contact section
 
+  .headerTitle{
+    font-size: 35px !important;
+  }
+
   .ContactHeader{
     margin-bottom: 0%;
     left: 0;
@@ -715,7 +720,7 @@
       height: 50px !important;
       width: 80% !important;
       .contactHeaderButton{
-        font-size: 30px;
+        font-size: 25px;
         height: 30px;
       }
     }
@@ -791,7 +796,7 @@
       }
     }
   }
-
+  
   .leftSide {
     display: none;
   }
@@ -805,9 +810,47 @@
     height: fit-content !important;
     padding-bottom: 3vh !important;
   }
+  .copyTextMessage{
+    display: none;
+  }
   #ContactSectionContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  //* All models popUp
+  .popUpGuitarsSect{
+    width: 100vw;
+    padding: 0 !important;
+    .popUpHeader{
+      width: 100vw !important;
+      
+      .buttons{
+        width: 80% !important;
+        padding: 0 2% !important;
+      }
+      .rightSideHeader{
+        width: 20% !important;
+        
+        #popupHeaderMesureLine{
+          margin-left: 10% !important;
+          width: 5px !important;
+          align-self: center;
+        }
+        #popUpHeaderClose{
+          padding: 15% 5% 15% 30% !important;
+        }
+      }
+    }
+
+    .allItemsContainer{
+      .GuitarItem{
+        width: 30vw !important;
+        .ImageItem{
+          height: 30vw !important;
+        }
+      }
+    }
   }
 }

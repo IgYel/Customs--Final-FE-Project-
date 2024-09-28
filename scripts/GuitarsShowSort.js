@@ -2,7 +2,20 @@ const container = document.querySelector(".allItemsContainer");
 let counterIMG = 1;
 
 class GuitarElementClass {
-  constructor(id, name, description, quote, year, type, wood, img, guitarist, imgSide, imgHead, model) {
+  constructor(
+    id,
+    name,
+    description,
+    quote,
+    year,
+    type,
+    wood,
+    img,
+    guitarist,
+    imgSide,
+    imgHead,
+    model
+  ) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -62,7 +75,7 @@ const guitarData = [
     "Jaxon Malone",
     "./img/LPW side.jpg",
     "./img/LPW HeadStock.png",
-    "LP",
+    "LP"
   ),
   new GuitarElementClass(
     "02",
@@ -76,7 +89,7 @@ const guitarData = [
     "Kraven Schwarzstahl",
     "./img/STR side.jpg",
     "./img/STR HeadStock.jpg",
-    "St",
+    "St"
   ),
   new GuitarElementClass(
     "03",
@@ -90,7 +103,7 @@ const guitarData = [
     "Joe Fredrix",
     "./img/SABW side.jpg",
     "./img/SABW HeadStock.jpg",
-    "SA",
+    "SA"
   ),
   new GuitarElementClass(
     "04",
@@ -104,7 +117,7 @@ const guitarData = [
     "Joe Fredrix",
     "./img/TCB side.jpg",
     "./img/TCB HeadStock.jpg",
-    "TC",
+    "TC"
   ),
   new GuitarElementClass(
     "05",
@@ -118,7 +131,7 @@ const guitarData = [
     "Kraven Schwarzstahl",
     "./img/BKW side.jpg",
     "./img/BKW HeadStock.jpg",
-    "Sta",
+    "Sta"
   ),
   new GuitarElementClass(
     "06",
@@ -132,7 +145,7 @@ const guitarData = [
     "Jacky Hammett",
     "./img/PBW side.jpg",
     "./img/PBW HeadStock.jpg",
-    "PB",
+    "PB"
   ),
   new GuitarElementClass(
     "07",
@@ -146,7 +159,7 @@ const guitarData = [
     "Jacky Hammett",
     "./img/JBG side.jpg",
     "./img/JBG HeadStock.jpeg",
-    "JB",
+    "JB"
   ),
   new GuitarElementClass(
     "08",
@@ -160,7 +173,7 @@ const guitarData = [
     "Freddie Madisson",
     "./img/STW side.jpg",
     "./img/STW HeadStock.jpg",
-    "St",
+    "St"
   ),
   new GuitarElementClass(
     "09",
@@ -174,7 +187,7 @@ const guitarData = [
     "Jaxon Malone",
     "./img/SABk side.jpg",
     "./img/SABk HeadStock.jpg",
-    "SA",
+    "SA"
   ),
   new GuitarElementClass(
     "10",
@@ -188,7 +201,7 @@ const guitarData = [
     "Kraven Schwarzstahl",
     "./img/BKBk side.jpg",
     "./img/BKBk HeadStock.jpg",
-    "Sta",
+    "Sta"
   ),
   new GuitarElementClass(
     "11",
@@ -202,7 +215,7 @@ const guitarData = [
     "Jaxon Malone",
     "./img/SGR side.jpeg",
     "./img/SGR HeadStock.png",
-    "SG",
+    "SG"
   ),
   new GuitarElementClass(
     "12",
@@ -216,29 +229,28 @@ const guitarData = [
     "Freddie Madisson",
     "./img/LPC side.jpg",
     "./img/LPC HeadStock.jpg",
-    "LP",
+    "LP"
   ),
 ];
 
-const selectModel = document.querySelector('#selectModel');
-const selectYear = document.querySelector('#selectYear');
-const selectWood = document.querySelector('#selectWood');
-const selectGuitarist = document.querySelector('#selectGuitarist');
+const selectModel = document.querySelector("#selectModel");
+const selectYear = document.querySelector("#selectYear");
+const selectWood = document.querySelector("#selectWood");
+const selectGuitarist = document.querySelector("#selectGuitarist");
 
-const guitarsModels = document.querySelector('#guitarsModels');
-const bassModels = document.querySelector('#bassModels');
+const guitarsModels = document.querySelector("#guitarsModels");
+const bassModels = document.querySelector("#bassModels");
 
-const nameProp = document.querySelector('#nameProp');
-const ageProp = document.querySelector('#ageProp');
-const modelProp = document.querySelector('#modelProp');
+const nameProp = document.querySelector("#nameProp");
+const ageProp = document.querySelector("#ageProp");
+const modelProp = document.querySelector("#modelProp");
 
-let filteredData = [];
+let filteredData = [...guitarData];
 
 function filterGuitars() {
-
   //* Create an array for filtered data
   const filteredGuitarData = [];
-  
+
   // Iterate through all data
   for (let i = 0; i < guitarData.length; i++) {
     const guitar = guitarData[i];
@@ -260,7 +272,10 @@ function filterGuitars() {
     }
 
     // Filtering by guitarist
-    if (selectGuitarist.value !== "none" && guitar.guitarist !== selectGuitarist.value) {
+    if (
+      selectGuitarist.value !== "none" &&
+      guitar.guitarist !== selectGuitarist.value
+    ) {
       matches = false;
     }
 
@@ -281,13 +296,14 @@ function filterGuitars() {
   // Update global variable filteredData
   filteredData = [...filteredGuitarData];
 
+  
   attachEventHandlers(); // Bind events after filtering
 }
 
 function filterByCategory(category) {
   // Clear the container
   container.innerHTML = "";
-  
+
   // Iterate through previously filtered data
   for (let i = 0; i < filteredData.length; i++) {
     if (filteredData[i].type === category) {
@@ -301,56 +317,64 @@ function filterByCategory(category) {
 let sortState = {
   name: null,
   year: null,
-  model: null
+  model: null,
 };
 
 function sortFilteredData(name, year, model) {
-    // Create a copy of filteredData array so sorting does not affect the original array
-    let sortedGuitarData = [...filteredData];
+  // Create a copy of filteredData array so sorting does not affect the original array
+  let sortedGuitarData = [...filteredData];
 
-    if (name) {
-        // Determine sorting direction by name
-        const direction = sortState.name === 'az' ? 'za' : 'az';
-        sortedGuitarData.sort(function(a, b) {
-            let nameA = a.name.startsWith("Custom") ? a.name.substring(6).trim() : a.name;
-            let nameB = b.name.startsWith("Custom") ? b.name.substring(6).trim() : b.name;
-            return direction === 'az' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-        });
-        sortState = { name: direction, year: null, model: null };
-    }
+  if (name) {
+    // Determine sorting direction by name
+    const direction = sortState.name === "az" ? "za" : "az";
+    sortedGuitarData.sort(function (a, b) {
+      let nameA = a.name.startsWith("Custom")
+        ? a.name.substring(6).trim()
+        : a.name;
+      let nameB = b.name.startsWith("Custom")
+        ? b.name.substring(6).trim()
+        : b.name;
+      return direction === "az"
+        ? nameA.localeCompare(nameB)
+        : nameB.localeCompare(nameA);
+    });
+    sortState = { name: direction, year: null, model: null };
+  }
 
-    if (year) {
-        // Determine sorting direction by year
-        const direction = sortState.year === 'asc' ? 'desc' : 'asc';
-        sortedGuitarData.sort(function(a, b) {
-            return direction === 'asc' ? a.year - b.year : b.year - a.year;
-        });
-        sortState = { name: null, year: direction, model: null };
-    }
+  if (year) {
+    // Determine sorting direction by year
+    const direction = sortState.year === "asc" ? "desc" : "asc";
+    sortedGuitarData.sort(function (a, b) {
+      return direction === "asc" ? a.year - b.year : b.year - a.year;
+    });
+    sortState = { name: null, year: direction, model: null };
+  }
 
-    if (model) {
-        // Determine sorting direction by model
-        const direction = sortState.model === 'az' ? 'za' : 'az';
-        sortedGuitarData.sort(function(a, b) {
-            let modelA = a.name.split('|')[1]?.trim().split(' ')[0] || "";
-            let modelB = b.name.split('|')[1]?.trim().split(' ')[0] || "";
-            return direction === 'az' ? modelA.localeCompare(modelB) : modelB.localeCompare(modelA);
-        });
-        sortState = { name: null, year: null, model: direction };
-    }
+  if (model) {
+    // Determine sorting direction by model
+    const direction = sortState.model === "az" ? "za" : "az";
+    sortedGuitarData.sort(function (a, b) {
+      let modelA = a.name.split("|")[1]?.trim().split(" ")[0] || "";
+      let modelB = b.name.split("|")[1]?.trim().split(" ")[0] || "";
+      return direction === "az"
+        ? modelA.localeCompare(modelB)
+        : modelB.localeCompare(modelA);
+    });
+    sortState = { name: null, year: null, model: direction };
+  }
 
-    // Clear the container before displaying sorted data
-    container.innerHTML = "";
+  // Clear the container before displaying sorted data
+  container.innerHTML = "";
 
-    // Execute createAndAppendCard function for each item in the sorted array
-    for (let i = 0; i < sortedGuitarData.length; i++) {
-        sortedGuitarData[i].createAndAppendCard();
-    }
+  // Execute createAndAppendCard function for each item in the sorted array
+  for (let i = 0; i < sortedGuitarData.length; i++) {
+    sortedGuitarData[i].createAndAppendCard();
+  }
 
-    // Update global variable filteredData
-    filteredData = sortedGuitarData;
+  // Update global variable filteredData
+  filteredData = sortedGuitarData;
 
-    attachEventHandlers(); // Bind events after filtering by category
+  attachEventHandlers(); // Bind events after filtering by category
 }
 
 for (let i = 0; i < guitarData.length; i++) {
@@ -364,24 +388,24 @@ selectYear.onclick = () => filterGuitars();
 selectWood.onclick = () => filterGuitars();
 selectGuitarist.onclick = () => filterGuitars();
 
-guitarsModels.onclick = () =>{
+guitarsModels.onclick = () => {
   filterByCategory("guitar");
-}
-bassModels.onclick = () =>{
+};
+bassModels.onclick = () => {
   filterByCategory("bass");
-}
+};
 
-nameProp.onclick = () =>{
+nameProp.onclick = () => {
   sortFilteredData(true, false, false);
-}
+};
 
-ageProp.onclick = () =>{
+ageProp.onclick = () => {
   sortFilteredData(false, true, false);
-}
+};
 
-modelProp.onclick = () =>{
+modelProp.onclick = () => {
   sortFilteredData(false, false, true);
-}
+};
 
 //! Horizontal scroller cards
 
@@ -394,7 +418,7 @@ const showHScrollCards = (g1, g2, g3, g4, g5, g6, g7, g8) => {
   guitarData[g6].createAndAppendHScrollerCard(6);
   guitarData[g7].createAndAppendHScrollerCard(7);
   guitarData[g8].createAndAppendHScrollerCard(8);
-}
+};
 
 showHScrollCards(0, 5, 2, 8, 3, 7, 4, 11);
 
@@ -405,7 +429,7 @@ const Preview = document.querySelector(".PreviewImageBackGround");
 Preview.classList.add("Hidden");
 
 const OpenItemContainer = document.querySelector(".OpenItemContainer");
-const ItemWindow = document.querySelector('.ItemWindow');
+const ItemWindow = document.querySelector(".ItemWindow");
 OpenItemContainer.classList.add("Hidden");
 
 let selectedItem = null;
@@ -413,133 +437,132 @@ let i = 1;
 
 // Function to bind events to guitar items
 function attachEventHandlers() {
-    const guitarItems = document.querySelectorAll(".GuitarItem");
-    let previewTimeout = null;
+  const guitarItems = document.querySelectorAll(".GuitarItem");
+  let previewTimeout = null;
 
-    guitarItems.forEach((item) => {
-        item.addEventListener("mouseenter", (event) => {
-            // Clear the previous timer if it exists
-            if (previewTimeout) {
-                clearTimeout(previewTimeout);
-            }
+  guitarItems.forEach((item) => {
+    item.addEventListener("mouseenter", (event) => {
+      // Clear the previous timer if it exists
+      if (previewTimeout) {
+        clearTimeout(previewTimeout);
+      }
 
-            // Get the ID of the target element
-            const id = event.currentTarget.id;
+      // Get the ID of the target element
+      const id = event.currentTarget.id;
 
-            // Find the object with the same ID in the guitarData array
-            selectedItem = guitarData.find((guitar) => guitar.id === id);
+      // Find the object with the same ID in the guitarData array
+      selectedItem = guitarData.find((guitar) => guitar.id === id);
 
-            // Set a timer to show the preview with a 1.6-second delay
-            previewTimeout = setTimeout(() => {
-                ShowPreview(selectedItem);
-            }, 1600);
-        });
-
-        item.addEventListener("mouseleave", () => {
-            // Clear the timer to prevent showing preview after cursor leaves
-            if (previewTimeout) {
-                clearTimeout(previewTimeout);
-                previewTimeout = null;
-            }
-
-            Preview.classList.add("Hidden");
-        });
-
-        item.addEventListener("click", () => {
-            showPopUp(selectedItem);
-        });
+      // Set a timer to show the preview with a 1.6-second delay
+      previewTimeout = setTimeout(() => {
+        ShowPreview(selectedItem);
+      }, 1600);
     });
+
+    item.addEventListener("mouseleave", () => {
+      // Clear the timer to prevent showing preview after cursor leaves
+      if (previewTimeout) {
+        clearTimeout(previewTimeout);
+        previewTimeout = null;
+      }
+
+      Preview.classList.add("Hidden");
+    });
+
+    item.addEventListener("click", () => {
+      showPopUp(selectedItem);
+    });
+  });
 }
 
 // Function to show preview
 const ShowPreview = (guitar) => {
-    if (guitar) {
-        const PreviewIMG = document.querySelector(".Preview");
-        PreviewIMG.src = guitar.img;
-        Preview.classList.remove("Hidden");
-    }
+  if (guitar) {
+    const PreviewIMG = document.querySelector(".Preview");
+    PreviewIMG.src = guitar.img;
+    Preview.classList.remove("Hidden");
+  }
 };
 
 // Function to show popup with guitar information
 const showPopUp = (guitar) => {
-    if (guitar) {
-        selectedItem = guitar;
+  if (guitar) {
+    selectedItem = guitar;
 
-        document.querySelector('.ImageLogo').src = guitar.img;
-        document.querySelector('#Paragraph').textContent = guitar.description;
-        document.querySelector('#quoteOfParagraph').textContent = guitar.quote;
-        document.querySelector('#guitarist').textContent = guitar.guitarist;
-        document.querySelector('#nameOfItem').textContent = guitar.name;
+    document.querySelector(".ImageLogo").src = guitar.img;
+    document.querySelector("#Paragraph").textContent = guitar.description;
+    document.querySelector("#quoteOfParagraph").textContent = guitar.quote;
+    document.querySelector("#guitarist").textContent = guitar.guitarist;
+    document.querySelector("#nameOfItem").textContent = guitar.name;
 
-        OpenItemContainer.classList.remove("Hidden");
+    OpenItemContainer.classList.remove("Hidden");
 
-        // Function to switch photos in the popup
-        i = 1;
-        switchPhotos();
-    }
+    // Function to switch photos in the popup
+    i = 1;
+    switchPhotos();
+  }
 };
 
 // Function to switch photos in the popup
 const switchPhotos = () => {
-    if (selectedItem) {
-        if (i === 1) {
-            document.querySelector('.ImageLogo').src = selectedItem.img;
-            document.querySelector('#firstImage').classList.add('ImageSelected');
-            document.querySelector('#secondImage').classList.remove('ImageSelected');
-            document.querySelector('#thirdImage').classList.remove('ImageSelected');
-        } else if (i === 2) {
-            document.querySelector('.ImageLogo').src = selectedItem.imgSide;
-            document.querySelector('#secondImage').classList.add('ImageSelected');
-            document.querySelector('#firstImage').classList.remove('ImageSelected');
-            document.querySelector('#thirdImage').classList.remove('ImageSelected');
-        } else if (i === 3) {
-            document.querySelector('.ImageLogo').src = selectedItem.imgHead;
-            document.querySelector('#thirdImage').classList.add('ImageSelected');
-            document.querySelector('#firstImage').classList.remove('ImageSelected');
-            document.querySelector('#secondImage').classList.remove('ImageSelected');
-        }
+  if (selectedItem) {
+    if (i === 1) {
+      document.querySelector(".ImageLogo").src = selectedItem.img;
+      document.querySelector("#firstImage").classList.add("ImageSelected");
+      document.querySelector("#secondImage").classList.remove("ImageSelected");
+      document.querySelector("#thirdImage").classList.remove("ImageSelected");
+    } else if (i === 2) {
+      document.querySelector(".ImageLogo").src = selectedItem.imgSide;
+      document.querySelector("#secondImage").classList.add("ImageSelected");
+      document.querySelector("#firstImage").classList.remove("ImageSelected");
+      document.querySelector("#thirdImage").classList.remove("ImageSelected");
+    } else if (i === 3) {
+      document.querySelector(".ImageLogo").src = selectedItem.imgHead;
+      document.querySelector("#thirdImage").classList.add("ImageSelected");
+      document.querySelector("#firstImage").classList.remove("ImageSelected");
+      document.querySelector("#secondImage").classList.remove("ImageSelected");
     }
+  }
 };
 
-const cursor = document.querySelector('#cursor');
+const cursor = document.querySelector("#cursor");
 
-OpenItemContainer.addEventListener('click', (event) => {
+OpenItemContainer.addEventListener("click", (event) => {
   if (event.target === ItemWindow || ItemWindow.contains(event.target)) {
     return;
   }
-  OpenItemContainer.classList.add('Hidden');
-  cursor.classList.remove('scale');
+  OpenItemContainer.classList.add("Hidden");
+  cursor.classList.remove("scale");
 });
 
-OpenItemContainer.addEventListener('mouseover', (event) => {
+OpenItemContainer.addEventListener("mouseover", (event) => {
   if (event.target === ItemWindow || ItemWindow.contains(event.target)) {
-    cursor.classList.remove('scale');
+    cursor.classList.remove("scale");
   } else {
-    cursor.classList.add('scale');
+    cursor.classList.add("scale");
   }
 });
 
-
-document.querySelector('#firstImage').onclick = () => {
-    i = 1;
-    switchPhotos();
+document.querySelector("#firstImage").onclick = () => {
+  i = 1;
+  switchPhotos();
 };
-document.querySelector('#secondImage').onclick = () => {
-    i = 2;
-    switchPhotos();
+document.querySelector("#secondImage").onclick = () => {
+  i = 2;
+  switchPhotos();
 };
-document.querySelector('#thirdImage').onclick = () => {
-    i = 3;
-    switchPhotos();
+document.querySelector("#thirdImage").onclick = () => {
+  i = 3;
+  switchPhotos();
 };
 
 // Initially set the first image as selected
-document.querySelector('#firstImage').classList.add('ImageSelected');
+document.querySelector("#firstImage").classList.add("ImageSelected");
 
 // Initial event binding to elements
 attachEventHandlers();
 
-const orderedContainer = document.querySelector('.MyGuitarsContainer');
+const orderedContainer = document.querySelector(".MyGuitarsContainer");
 orderedContainer.innerHTML = "";
 
 export default {};
