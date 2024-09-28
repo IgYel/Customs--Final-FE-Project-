@@ -68,4 +68,16 @@ LampDark.onclick = () => {
     setTheme('light');
 };
 
+const Lamps = document.querySelector('.Lamps');
+const hint = document.querySelector('.arrowHint');
+hint.style.display = "block";
+
+let showHint = true;
+if(showHint = true){
+    Lamps.onclick = () =>{
+        showHint = false;
+        hint.style.display = "none";
+    }
+}
+
 export default {};

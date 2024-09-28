@@ -603,6 +603,32 @@
   animation: SpinnerOff 0.5s ease 0s forwards;
 }
 
+.arrowHint{
+  position: absolute;    
+  top: 33%;
+  left: 46%;
+  height: 200px;
+  width: 200px;
+  opacity: 0.3;
+  #arrow{
+    fill: none;
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    top: 72.5px;
+    left: 72.5px;
+  }
+  
+  #circleText{
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: spinRound 30s linear 0s infinite;
+    height: 200px;
+    width: 200px;
+  }
+}
+
 //! Adaptive
 
 @media only screen and (max-width: 1100px) {
@@ -651,14 +677,13 @@
       width: 850%;
     }
     .hScrollHeader {
-      // display: none !important;
-      padding: 3%;
+      margin: 10vh 0;
+      padding: 2%;
       left: 0;
       width: 10%;
-      height: 97%;
-      border-top: none;
-      border-bottom: none;
+      height: 76vh;
       position: fixed;
+      border-radius: 0 2vh 2vh 0;
     }
   }
   .headerHide{
