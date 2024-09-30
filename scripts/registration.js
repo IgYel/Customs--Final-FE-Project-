@@ -14,7 +14,16 @@ loginIcon.onclick = () => {
     "Register-window",
     "Register-window"
   );
+
+  const InsideContainer = document.querySelector('.InsideContainer');
   registerContainer.classList.remove("Hidden");
+  InsideContainer.classList.remove('ProfileMode');
+  InsideContainer.classList.remove('WiderPopUpProfile');
+  const ButtonsProfileContainer = document.querySelector('.ButtonsProfileContainer');
+  const profileInfo = document.querySelector('.profileInfo');
+
+  Display(ButtonsProfileContainer, "t");
+  Display(profileInfo, "f");
 };
 //* same for header button
 headerloginButton.onclick = () => {
@@ -454,6 +463,7 @@ const MyGuitarsInfo = document.querySelector(".MyGuitarsInfo");
 Display(LogOutMessage, "f");
 Display(profileInfo, "f");
 Display(MyGuitarsInfo, "f");
+InsideContainer.classList.remove("WiderPopUpProfile");
 
 LogOutButton.onclick = () => {
   Display(LogOutMessage, "t");
@@ -475,6 +485,7 @@ ProfileButton.onclick = () => {
   Display(ButtonsProfileContainer, "f");
   Display(profileInfo, "t");
   InsideContainer.classList.add("WiderPopUpProfile");
+  InsideContainer.classList.add("ProfileMode");
 
   // Добавляем состояние в историю
   history.pushState(
@@ -520,6 +531,7 @@ window.addEventListener("popstate", (event) => {
 
       Display(UserSection, "t");
       Display(AdminSection, "f");
+      InsideContainer.classList.remove("ProfileMode");
       InsideContainer.classList.remove("WiderPopUpProfile");
     } else if (event.state.profileOpened) {
       // Если состояние истории указывает, что профиль должен быть открыт
@@ -528,6 +540,7 @@ window.addEventListener("popstate", (event) => {
       Display(profileInfo, "t");
       Display(MyGuitarsInfo, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
+    InsideContainer.classList.add("ProfileMode");
     } else if (event.state.OrderGuitarsOpened) {
       // Если состояние истории указывает, что окно заказанных гитар должно быть открыто
       Display(MyGuitarsInfo, "t");
@@ -555,6 +568,7 @@ window.addEventListener("popstate", (event) => {
     Display(UserSection, "t");
     Display(AdminSection, "f");
     InsideContainer.classList.remove("WiderPopUpProfile");
+    InsideContainer.classList.remove("ProfileMode");
     Display(MyGuitarsInfo, "f"); // Скрываем информацию о гитарах
   }
 });
@@ -586,21 +600,24 @@ function openPopUpFromHistory() {
       Display(profileInfo, "f");
       Display(MyGuitarsInfo, "f");
       InsideContainer.classList.remove("WiderPopUpProfile");
+      InsideContainer.classList.remove("ProfileMode");
     } else if (state.profileOpened) {
       // Если состояние указывает, что профиль должен быть открыт
       registerContainer.classList.remove("Hidden");
-
+      
       Display(LogOutMessage, "f");
       Display(ButtonsProfileContainer, "f");
       Display(profileInfo, "t");
       Display(MyGuitarsInfo, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
+      InsideContainer.classList.add("ProfileMode");
     } else if (state.OrderGuitarsOpened) {
       // Если состояние истории указывает, что окно заказанных гитар должно быть открыто
       registerContainer.classList.remove("Hidden");
       Display(MyGuitarsInfo, "t");
       Display(ButtonsProfileContainer, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
+      InsideContainer.classList.remove("ProfileMode");
       loggedInUserLogin = currentUser.login; // Обновляем логин пользователя, если нужно
       displayUserGuitars(); // Вызываем функцию для отображения гитар
     } else if (state.AdminWindowOpened) {
@@ -611,6 +628,7 @@ function openPopUpFromHistory() {
 
       Display(ButtonsProfileContainer, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
+      InsideContainer.classList.remove("ProfileMode");
       loggedInUserLogin = currentUser.login; // Обновляем логин пользователя, если нужно
       displayUserGuitars(); // Вызываем функцию для отображения гитар
     } else if (state.popUpOpened) {
@@ -619,6 +637,7 @@ function openPopUpFromHistory() {
       
       Display(ButtonsProfileContainer, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
+      InsideContainer.classList.remove("ProfileMode");
       loggedInUserLogin = currentUser.login; // Обновляем логин пользователя, если нужно
       displayUserGuitars(); // Вызываем функцию для отображения гитар
     }
@@ -629,6 +648,7 @@ function openPopUpFromHistory() {
     Display(LogOutMessage, "f");
     Display(ButtonsProfileContainer, "t");
     Display(profileInfo, "f");
+    InsideContainer.classList.remove("ProfileMode");
     InsideContainer.classList.remove("WiderPopUpProfile");
     Display(MyGuitarsInfo, "f"); // Скрываем информацию о гитарах
   }
@@ -769,6 +789,7 @@ RegisterContainer.addEventListener("click", (event) => {
     Display(profileInfo, "f");
     Display(LogOutMessage, "f");
     InsideContainer.classList.remove("WiderPopUpProfile");
+    InsideContainer.classList.remove("ProfileMode");
   }
 
   // Возвращаемся к предыдущему состоянию в истории

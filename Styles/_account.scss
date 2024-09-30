@@ -128,9 +128,12 @@
         }
     }
 }
-.WiderPopUpProfile{
+
+@media only screen and (min-width: 1101px) {
+  .WiderPopUpProfile{
     width: 45vw !important;
-    margin-left: 27.5vw !important;
+    margin-left: 25vw !important;
+  }
 }
 
 .MyGuitarsInfo{
