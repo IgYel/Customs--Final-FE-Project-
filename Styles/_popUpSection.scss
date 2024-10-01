@@ -276,6 +276,15 @@
       .buttons{
         width: 80% !important;
         padding: 0 2% !important;
+        display: flex;
+        justify-content: center !important;
+        .popUpHeaderButton{
+            font-size: 5vw !important;
+            display: none;
+        }
+        #allFiltersButton{
+            display: block;
+        }
       }
       .rightSideHeader{
         width: 20% !important;
@@ -290,14 +299,54 @@
         }
       }
     }
+    .popUpPropsContainer{
+        width: 100vw !important;
+        padding: 0 !important;
+        flex-direction: column !important;
+        .Props{
+            margin: 0 !important;
+            font-size: 5vw;
+            width: fit-content !important;
+            border: none !important;
+            border-bottom: 0.5vw solid !important;
+            width: 100% !important;
+            select{
+                option{
+                    font-size: 3vw;
+                }
+            }
+        }
+        width: 50vw !important;
+        border-right: 0.5vw solid;
+        border-color: var(--color);
+        transition: 0.5s ease;
+    }
+    .OpenContainer{
+        margin-left: -55vw;
+        transition: 0.5s ease;
+    }
 
     .allItemsContainer{
+        height: 92% !important;
       .GuitarItem{
         width: 30vw !important;
         .ImageItem{
           height: 30vw !important;
         }
       }
+    }
+  }
+
+  .OpenItemContainer{
+    background-color: #161616c1;
+    .ItemWindow{
+        height: 85vh !important;
+        width: 88vw !important;
+
+        margin: 7.5vh 5vw !important;
+        border: 0.5vw solid !important;
+        border-color: var(--color) !important;
+        
     }
   }
 }

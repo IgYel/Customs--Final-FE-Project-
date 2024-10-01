@@ -37,6 +37,9 @@ const openPopUp = () => {
     // Закрываем попап
     popUpGuitarContainer.classList.add("Hidden");
 
+    const OpenItemContainer = document.querySelector('.OpenItemContainer');
+    OpenItemContainer.classList.add("Hidden");
+
     // Возвращаемся к предыдущему состоянию в истории
     history.back();
   });
@@ -49,6 +52,9 @@ const openPopUp = () => {
     } else {
       // Прячем попап, если состояние указывает на закрытое окно
       popUpGuitarContainer.classList.add("Hidden");
+
+      const OpenItemContainer = document.querySelector('.OpenItemContainer');
+      OpenItemContainer.classList.add("Hidden");
     }
   });
 };
@@ -72,6 +78,9 @@ const sortButton = document.querySelector("#sortButton");
 const categoryButton = document.querySelector("#categoryButton");
 const filtersButton = document.querySelector("#filtersButton");
 
+const allFiltersButton = document.querySelector('#allFiltersButton');
+
+const popUpPropsContainer = document.querySelector('.popUpPropsContainer');
 const sortProp = document.querySelector("#sortProp");
 const categoryProp = document.querySelector("#categoryProp");
 const filtersProp = document.querySelector("#filtersProp");
@@ -87,3 +96,9 @@ const togglePopUp = (button, element) => {
 togglePopUp(sortButton, sortProp);
 togglePopUp(categoryButton, categoryProp);
 togglePopUp(filtersButton, filtersProp);
+
+popUpPropsContainer.classList.add("OpenContainer");
+
+allFiltersButton.addEventListener('click', () =>{
+  popUpPropsContainer.classList.toggle("OpenContainer");
+});
