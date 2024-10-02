@@ -8,3 +8,4 @@ import './language';
 import './contacts';
 import './registration';
 import './BackEnd';
+import './redirect';
