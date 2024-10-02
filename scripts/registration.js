@@ -528,6 +528,7 @@ window.addEventListener("popstate", (event) => {
       Display(ButtonsProfileContainer, "t");
       Display(profileInfo, "f");
       Display(MyGuitarsInfo, "f");
+      Display()
 
       Display(UserSection, "t");
       Display(AdminSection, "f");
@@ -585,6 +586,12 @@ AdminWindow.onclick = () => {
 };
 
 const popUpGuitarContainer = document.querySelector('.popUpGuitarContainer');
+const ProfileAvatarInput = document.querySelector(".ProfileAvatarInput");
+const closeAvatarInput = document.querySelector('#closeAvatarInput');
+
+closeAvatarInput.onclick = () =>{
+  Display(ProfileAvatarInput, "f");
+}
 
 // Функция для открытия соответствующего окна на основе состояния истории
 function openPopUpFromHistory() {
@@ -598,6 +605,7 @@ function openPopUpFromHistory() {
       Display(LogOutMessage, "f");
       Display(ButtonsProfileContainer, "t");
       Display(profileInfo, "f");
+      Display(ProfileAvatarInput, "f");
       Display(MyGuitarsInfo, "f");
       InsideContainer.classList.remove("WiderPopUpProfile");
       InsideContainer.classList.remove("ProfileMode");
@@ -648,6 +656,7 @@ function openPopUpFromHistory() {
     Display(LogOutMessage, "f");
     Display(ButtonsProfileContainer, "t");
     Display(profileInfo, "f");
+    Display(ProfileAvatarInput, "f");
     InsideContainer.classList.remove("ProfileMode");
     InsideContainer.classList.remove("WiderPopUpProfile");
     Display(MyGuitarsInfo, "f"); // Скрываем информацию о гитарах
@@ -812,7 +821,6 @@ const ProfileAvatarContainer = document.querySelector(
 );
 const editAvatarButton = document.querySelector("#editAvatarButton");
 
-const ProfileAvatarInput = document.querySelector(".ProfileAvatarInput");
 const avatarinput = document.querySelector("#avatarinput");
 
 editAvatarButton.classList.add("Hidden");

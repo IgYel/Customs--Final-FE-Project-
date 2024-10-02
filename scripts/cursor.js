@@ -100,7 +100,7 @@ function observeDOMChanges() {
     Pointer(".red");
     
     Pointer(".correctButton");
-    // Pointer(".ProfileAvatarContainer");
+    Pointer("#closeAvatarInput");
   });
 
   observer.observe(document.body, { childList: true, subtree: true });

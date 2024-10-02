@@ -15,73 +15,80 @@
         .popUpHeader{
             width: 100%;
             height: 56px;
-            border-bottom: 0.5vh solid;
+            border-bottom: 0.3vh solid;
             border-color: var(--color);
             display: flex;
-            justify-content: space-between;
             position: relative;
             background-color: var(--bg);
             .buttons{
-                width: 70%;
+                width: 80%;
                 display: flex;
                 justify-content: space-between;
-                padding: 0 10% 0 10%;
+                padding: 0 5%;
                 .popUpHeaderButton{
-                    text-align: center;
-                    align-content: center;
                     font-size: 25px;
-                    @include underline
-                    (0, 3px, 7px, auto, var(--color), 'margin-left', 'width')
+                    width: 30%;
+                    
+                    display: flex;
+                    justify-content: center;
+                    .popUpHeaderButtonContainer{
+                        width: fit-content;
+                        height: 100%;
+                        text-align: center;
+                        align-content: center;
+                        @include underline
+                        (0, 3px, 7px, auto, var(--color), 'margin-left', 'width')
+                    }
                 }
                 #allFiltersButton{
                     display: none;
                 }
             }
             .rightSideHeader{
-                width: 500px;
+                width: 10%;
                 height: 100%;
                 display: flex;
                 
                 #popupHeaderMesureLine{
-                    height: 90%;
-                    width: 1.7vh;
-                    margin-left: 60%;
-                    margin-top: 0.4%;
+                    width: 2%;
+                    height: 85%;
+                    margin-top: 2.5%;
                     background-color: var(--color);
                     border-radius: 5vw;
                 }
                 #popUpHeaderClose{
-                    padding: 2% 3% 2% 7%;
+                    padding: 5% 10% 5% 5%;
                     transition: 0.3s ease;
+                    width: 80%;
                     #cross{
                         width: 100%;
                         height: 100%;
                     }
                     display: flex;
                     justify-content: end;
-                    width: 100%;
                 }
             }
         }
 
         .popUpPropsContainer{
-            width: 68%;
-            padding: 0 3% 0 4%;
             height: fit-content;
-            display: flex;
-            justify-content: space-between;
             overflow: hidden;
             position: absolute;
+
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%;
             .Props{
                 border: 0.5vh solid;
                 border-top: none;
                 border-color: var(--color);
                 height: fit-content;
-                padding: 1% 2%;
-                width: 21%;
+                padding: 1vw;
+                width: 27%;
                 background-color: var(--bg);
 
-                margin-top: -30vh; //! Prop for JS
+                margin-top: -35vh; //! Prop for JS
                 transition: 0.3s ease-in;
                 .Property{
                     margin-bottom: 10%;
@@ -98,11 +105,7 @@
                 }
                 border-radius: 0.2vw;
             }
-            #categoryProp{
-                margin-left: 1vw;
-            }
             #filtersProp{
-                margin-right: -3vw;
                 margin-top: -70vh;
             }
             .popUpPropsOn{
@@ -288,23 +291,14 @@
         justify-content: center !important;
         .popUpHeaderButton{
             font-size: 5vw !important;
-            display: none;
+            display: none !important;
         }
         #allFiltersButton{
             display: block !important;
         }
       }
       .rightSideHeader{
-        width: 20% !important;
-        
-        #popupHeaderMesureLine{
-          margin-left: 10% !important;
-          width: 5px !important;
-          align-self: center;
-        }
-        #popUpHeaderClose{
-          padding: 10% 5% 10% 30% !important;
-        }
+        width: 16% !important;
       }
     }
     .popUpPropsContainer{
@@ -315,7 +309,7 @@
         }
         .Props{
             margin: 0 !important;
-            font-size: 3vw;
+            font-size: 4vw;
             width: fit-content !important;
             border: none !important;
             border-bottom: 0.5vw solid !important;
@@ -326,7 +320,7 @@
                 }
             }
         }
-        width: 50vw !important;
+        width: 30vw !important;
         border-right: 0.5vw solid;
         border-color: var(--color);
         transition: 0.5s ease;

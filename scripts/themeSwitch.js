@@ -1,8 +1,9 @@
 const LampLight = document.querySelector('#LampLight');
 const LampDark = document.querySelector('#LampDark');
 const light = document.getElementById('Light');
+let isAnimating = false; //flag to prevent d-click bugs
 
-// Функция для установки темы
+// theme set function
 function setTheme(theme) {
     if (theme === 'dark') {
         document.body.classList.add('dark');
@@ -17,14 +18,14 @@ function setTheme(theme) {
         light.style.opacity = '0';
         LampLight.style.opacity = '1';
     }
-    localStorage.setItem('theme', theme); // Сохранение темы в localStorage
+    localStorage.setItem('theme', theme); // save to localStorage
 }
 
-// Проверка сохранённой темы при загрузке страницы
-const savedTheme = localStorage.getItem('theme') || 'light'; // По умолчанию 'light'
+// test if there is ls save
+const savedTheme = localStorage.getItem('theme') || 'light'; // Default = 'light'
 setTheme(savedTheme);
 
-// Анимация для переключения на тёмную тему
+// Dark theme animation
 function lightOnAnimation() {
     LampLight.style.opacity = 1;
     LampDark.style.opacity = 0;
@@ -54,18 +55,24 @@ function lightOnAnimation() {
         LampLight.style.opacity = 0;
         LampDark.style.opacity = 1;
         light.style.opacity = 1;
+        isAnimating = false; // block off
     }, 900);// normal on
 }
 
-// Переключение на тёмную тему
+// switch to dark theme
 LampLight.onclick = () => {
-    setTheme('dark');
-    lightOnAnimation();
+    if (!isAnimating) {
+        setTheme('dark');
+        isAnimating = true; // block switching while animating
+        lightOnAnimation();
+    }
 };
 
-// Переключение на светлую тему
+// switch to light theme
 LampDark.onclick = () => {
-    setTheme('light');
+    if (!isAnimating) {
+        setTheme('light');
+    }
 };
 
 const Lamps = document.querySelector('.Lamps');
@@ -73,7 +80,7 @@ const hint = document.querySelector('.arrowHint');
 hint.style.display = "block";
 
 let showHint = true;
-if(showHint = true){
+if(showHint === true){
     Lamps.onclick = () =>{
         showHint = false;
         hint.style.display = "none";
