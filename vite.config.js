@@ -8,7 +8,7 @@ export default defineConfig({
       input: './index.html',
     },
     server: {
-      historyApiFallback: true, // Fallback for SPA
+      historyApiFallback: true, // Fallback for SPA 
     },
   }
 });
