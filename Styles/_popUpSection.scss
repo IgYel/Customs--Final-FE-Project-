@@ -33,6 +33,9 @@
                     @include underline
                     (0, 3px, 7px, auto, var(--color), 'margin-left', 'width')
                 }
+                #allFiltersButton{
+                    display: none;
+                }
             }
             .rightSideHeader{
                 width: 500px;
@@ -88,14 +91,18 @@
                     select{
                         background-color: var(--bg);
                         border: none;
-                        font-size: 2.5vh;
+                        font-size: 1.7vh;
                         font-weight: 200;
                         color: var(--color);
                     }
                 }
                 border-radius: 0.2vw;
             }
+            #categoryProp{
+                margin-left: 1vw;
+            }
             #filtersProp{
+                margin-right: -3vw;
                 margin-top: -70vh;
             }
             .popUpPropsOn{
@@ -283,7 +290,7 @@
             display: none;
         }
         #allFiltersButton{
-            display: block;
+            display: block !important;
         }
       }
       .rightSideHeader{
@@ -295,17 +302,19 @@
           align-self: center;
         }
         #popUpHeaderClose{
-          padding: 15% 5% 15% 30% !important;
+          padding: 10% 5% 10% 30% !important;
         }
       }
     }
     .popUpPropsContainer{
-        width: 100vw !important;
         padding: 0 !important;
         flex-direction: column !important;
+        .Property{
+            margin-bottom: 5% !important;
+        }
         .Props{
             margin: 0 !important;
-            font-size: 5vw;
+            font-size: 3vw;
             width: fit-content !important;
             border: none !important;
             border-bottom: 0.5vw solid !important;
@@ -320,6 +329,10 @@
         border-right: 0.5vw solid;
         border-color: var(--color);
         transition: 0.5s ease;
+        max-height: 90vh !important;
+        border-bottom: 0.3vw solid;
+        border-color: var(--color);
+        overflow-y: auto !important;
     }
     .OpenContainer{
         margin-left: -55vw;

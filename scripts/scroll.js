@@ -8,10 +8,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 let endOfScroller = 0;
 
-
 document.addEventListener('DOMContentLoaded', () => {
-  let isPC = true;
-  if(window.innerWidth > 1100) isPC = true;
 
   if (window.innerWidth > 1100){
     const hScrollContainer = document.querySelector('.hScrollContainer');
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //* add reload if resized scale for PC device
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1100) {
+    if (window.innerWidth > 1300) {
       location.reload(); //* reload page
     }
   });
@@ -63,6 +60,7 @@ let onLoadPosition = 0;
 window.addEventListener('scroll', () => {
   currentPosition = Math.round(window.scrollY || window.pageYOffset);
 });
+
 window.addEventListener("DOMContentLoaded", ()=>{
   setTimeout(function(){
     onLoadPosition = currentPosition;
@@ -83,8 +81,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
   }, 800)
 });
 
-//*if windows are opened
-
+//* if windows are opened
 
 document.querySelector('#BestModelsButton').onclick = () =>{
   scrollTo("#hScroll");
@@ -104,7 +101,6 @@ document.querySelector('#ArrowButtonID').onclick = () =>{
   scrollTo(endOfScroller);
 }
 
-export default{};
 const hScrollHeader = document.querySelector('.hScrollHeader');
 hScrollHeader.classList.add('headerHide');
 
@@ -134,3 +130,5 @@ function handleSwipe() {
     }
   }
 }
+
+export default {};

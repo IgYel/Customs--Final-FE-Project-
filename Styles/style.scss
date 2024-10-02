@@ -64,8 +64,11 @@ body{
     }
 } //* backend Cursor
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1800px) {
     *{
         cursor: default;
     }
+    .cursorContainer {
+        visibility: hidden;
+    } //* Turn off cursor
 }
