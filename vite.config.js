@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/Customs--Final-FE-Project-/',  // Замените на имя вашего репозитория
+  base: '/Customs--Final-FE-Project-/',  // repository name
   build: {
-    outDir: 'dist', // Убедитесь, что сборка идёт в папку dist
+    outDir: 'dist', // dist
+    rollupOptions: {
+      input: './index.html',
+    },
+    server: {
+      historyApiFallback: true, // Fallback for SPA
+    },
   }
 });

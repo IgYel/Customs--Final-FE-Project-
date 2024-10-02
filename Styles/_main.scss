@@ -53,7 +53,8 @@
     .Line2 {
       margin-left: 2vw;
       display: flex;
-      justify-content: end;
+      justify-content: start;
+      margin-left: 10vw;
     }
     span {
       opacity: 0.7;
@@ -79,6 +80,9 @@
         "margin-left",
         "width"
       );
+    }
+    #languageSwitchWord{
+      display: none;
     }
   }
 }
@@ -669,6 +673,9 @@
   }
   .languageSwitchButton{
     margin-bottom: -3vh;
+    #languageSwitchWord{
+      display: inline-block !important;
+    }
   }
   .Quote {
     width: 80vw;
@@ -759,6 +766,8 @@
   }
   .contactImageInfo {
     width: 100%;
+    padding: 3% 0;
+    height: 100% !important;
     .Info {
       width: 100%;
       font-size: 2.4vh !important;
