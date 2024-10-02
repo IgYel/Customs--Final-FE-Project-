@@ -10,10 +10,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
+    overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.566);
 
     .InsideContainer{
+        background-color: var(--bg);
         @include LoginReg();
+        height: fit-content !important;
+        min-height: 100vh !important;
 
         .LoginRegisterForms{
                 .labelforInput{
