@@ -584,64 +584,10 @@ AdminWindow.onclick = () => {
   history.pushState({ AdminWindowOpened: true }, "Admin-Pannel-window", "Admin-Pannel-window");
 };
 
-function handleRouteChange(path) {
-  if (path === '/Register-window') {
-    registerContainer.classList.remove("Hidden");
-    Display(ButtonsProfileContainer, "t");
-    Display(profileInfo, "f");
-    Display(MyGuitarsInfo, "f");
-  } else if (path === '/Profile-window') {
-    Display(LogOutMessage, "f");
-    Display(ButtonsProfileContainer, "f");
-    Display(profileInfo, "t");
-    InsideContainer.classList.add("WiderPopUpProfile");
-    InsideContainer.classList.add("ProfileMode");
-  } else if (path === '/Ordered-Guitars-window') {
-    Display(MyGuitarsInfo, "t");
-    Display(ButtonsProfileContainer, "f");
-    InsideContainer.classList.add("WiderPopUpProfile");
-    displayUserGuitars(); // Отображаем заказанные гитары
-  } else if (path === '/Admin-Pannel-window') {
-    Display(UserSection, "f");
-    Display(AdminSection, "t");
-    InsideContainer.classList.add("WiderPopUpProfile");
-  }
-  // Добавляй другие маршруты по необходимости
-}
-
 const popUpGuitarContainer = document.querySelector('.popUpGuitarContainer');
 
 // Функция для открытия соответствующего окна на основе состояния истории
 function openPopUpFromHistory() {
-
-  function openPopUpFromHistory() {
-    // Получаем параметр redirect из URL, если он существует
-    const params = new URLSearchParams(window.location.search);
-    const redirectPath = params.get('redirect');
-  
-    if (redirectPath) {
-      // Используем history.pushState, чтобы восстановить правильный маршрут
-      history.pushState(null, '', redirectPath);
-  
-      // Вызываем существующую логику для открытия нужного окна
-      handleRouteChange(redirectPath);
-  
-      // Убираем параметр redirect из URL для чистоты
-      window.history.replaceState(null, '', window.location.pathname);
-    }
-  
-    // Оставляем остальную логику как есть
-    const state = history.state;
-  
-    if (state) {
-      if (state.registerOpened) {
-        registerContainer.classList.remove("Hidden");
-        // Остальная логика
-      }
-      // Остальные проверки на state
-    }
-  }
-  
   const state = history.state; // Получаем текущее состояние истории
 
   if (state) {
