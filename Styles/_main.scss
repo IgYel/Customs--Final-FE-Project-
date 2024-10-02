@@ -616,6 +616,9 @@
     height: 55px;
     top: 72.5px;
     left: 72.5px;
+    path{
+      stroke: var(--color);
+    }
   }
   
   #circleText{
@@ -625,6 +628,13 @@
     animation: spinRound 30s linear 0s infinite;
     height: 200px;
     width: 200px;
+    path{
+      fill: var(--color);
+      &:first-child{
+        fill: none;
+        stroke: var(--color);
+      }
+    }
   }
 }
 
@@ -663,7 +673,7 @@
   .Quote {
     width: 80vw;
     font-size: 18px !important;
-    margin-bottom: 10vh !important;
+    margin-bottom: 15vh !important;
   }
 
   //* H Scroll

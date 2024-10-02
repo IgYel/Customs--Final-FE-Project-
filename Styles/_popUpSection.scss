@@ -339,6 +339,7 @@
 
   .OpenItemContainer{
     background-color: #161616c1;
+    height: 100vh;
     .ItemWindow{
         height: 85vh !important;
         width: 88vw !important;
@@ -346,7 +347,20 @@
         margin: 7.5vh 5vw !important;
         border: 0.5vw solid !important;
         border-color: var(--color) !important;
-        
+
+        flex-direction: column !important;
+        .leftSide{
+            width: 100%;
+            height: 60%;
+            margin-top: 1vh;
+        }
+        #Paragraph{
+            height: 20vh !important;
+            font-size: 3vw !important;
+        }
+        #quoteOfParagraph{
+            display: none;
+        }
     }
   }
 }
