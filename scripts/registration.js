@@ -728,6 +728,7 @@ function showAndCorrectElement(ElementClass, PenID, ElementTextID, InputID) {
   penID.classList.add("Hidden");
   Display(inputID, "f");
 
+  // Обработчики для наведения мыши
   elementClass.onmouseover = () => {
     penID.classList.remove("Hidden");
     isExistCookie("currentUser");
@@ -737,27 +738,34 @@ function showAndCorrectElement(ElementClass, PenID, ElementTextID, InputID) {
     penID.classList.add("Hidden");
   };
 
+  // Обработчик нажатия на иконку редактирования (ручку)
   penID.onclick = () => {
     isExistCookie("currentUser");
     Display(inputID, "t");
     Display(elementTextID, "f");
     Display(penID, "f");
-    inputID.value = elementTextID.textContent;
+
+    if (inputID.tagName === "SELECT") {
+      inputID.value = elementTextID.textContent;
+    } else {
+      inputID.value = elementTextID.textContent;
+    }
 
     document.addEventListener("keydown", (event) => {
       const activeElement = document.activeElement;
-      // Проверяем, находится ли фокус на конкретном поле ввода
+
       if (
         (event.key === "Enter" || event.keyCode === 13) &&
         activeElement === inputID
       ) {
-        event.preventDefault(); //* Preventing default
+        event.preventDefault();
         elementTextID.textContent = inputID.value;
 
         Display(inputID, "f");
         Display(elementTextID, "i");
         Display(penID, "i");
 
+        // Сохраняем данные в зависимости от класса элемента
         if (ElementClass === ".ProfileUserName") {
           currentUser.name = inputID.value;
         } else if (ElementClass === ".ProfileCoutry") {
@@ -768,17 +776,32 @@ function showAndCorrectElement(ElementClass, PenID, ElementTextID, InputID) {
           currentUser.email = inputID.value;
         }
 
-        //* Save changes to loginsList in localStorage, including password
+        // Сохраняем изменения в localStorage и куки
         updateLoginsList();
-
-        //* Also update cookies to keep current user info persistent
         saveCurrentUserToCookies();
       }
     });
   };
+
+  // Обработчик для изменения значения select (если InputID — это select)
+  if (inputID.tagName === "SELECT") {
+    inputID.addEventListener('change', (event) => {
+      elementTextID.textContent = event.target.value;
+
+      Display(inputID, "f");
+      Display(elementTextID, "i");
+      Display(penID, "i");
+
+      // Сохраняем измененное значение
+      currentUser.adress = inputID.value;
+
+      updateLoginsList();
+      saveCurrentUserToCookies();
+    });
+  }
 }
 
-// Aplying
+// Привязка к элементам
 showAndCorrectElement(
   ".ProfileUserName",
   "#correctName",
@@ -803,19 +826,6 @@ showAndCorrectElement(
   "#profileInfoEmail",
   "#ProfileEmailInput"
 );
-//* Different for country Mobile
-
-ProfileAdressInput.addEventListener('change', (event) => {
-  const elementTextID = document.querySelector('#profileInfoCountry');
-  const penID = document.querySelector('#correctAdress');
-  const inputID = document.querySelector('#ProfileAdressInput');
-  const selectedValue = event.target.value;
-
-  elementTextID.textContent = selectedValue;
-  Display(inputID, "f");
-  Display(elementTextID, "i");
-  Display(penID, "i");
-});
 
 //* If quit
 
