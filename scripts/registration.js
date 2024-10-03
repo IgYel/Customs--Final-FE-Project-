@@ -304,7 +304,6 @@ function IfLogged(LoggedStatus) {
 
     //* show AdminWindow button only for Admin_1234
     const AdminWindow = document.querySelector("#AdminWindow");
-    UpdateProfileInfo();
 
     if (currentUser.login == "Admin_1234") {
       Display(AdminWindow, "t");
@@ -313,7 +312,8 @@ function IfLogged(LoggedStatus) {
     }
 
     const inputNumber = document.querySelector("#inputNumber");
-
+    
+    UpdateProfileInfo();
     inputNumber.value = currentUser.phoneNumber
       .replace("+420", "") // delete country code +420
       .replace(/\s+/g, ""); // delete spaces
