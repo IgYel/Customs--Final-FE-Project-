@@ -15,12 +15,14 @@ loginIcon.onclick = () => {
     "Register-window"
   );
 
-  const InsideContainer = document.querySelector('.InsideContainer');
+  const InsideContainer = document.querySelector(".InsideContainer");
   registerContainer.classList.remove("Hidden");
-  InsideContainer.classList.remove('ProfileMode');
-  InsideContainer.classList.remove('WiderPopUpProfile');
-  const ButtonsProfileContainer = document.querySelector('.ButtonsProfileContainer');
-  const profileInfo = document.querySelector('.profileInfo');
+  InsideContainer.classList.remove("ProfileMode");
+  InsideContainer.classList.remove("WiderPopUpProfile");
+  const ButtonsProfileContainer = document.querySelector(
+    ".ButtonsProfileContainer"
+  );
+  const profileInfo = document.querySelector(".profileInfo");
 
   Display(ButtonsProfileContainer, "t");
   Display(profileInfo, "f");
@@ -35,7 +37,6 @@ headerloginButton.onclick = () => {
   );
   registerContainer.classList.remove("Hidden");
 };
-
 
 const InsideContainer = document.querySelector(".InsideContainer");
 const LogRegWindow = document.querySelector(".LogRegWindow");
@@ -142,7 +143,6 @@ function LoginAs() {
   const loggedInUser = loginsList.find((user) => user.login === loginInput);
 
   if (loggedInUser) {
-
     // Если пользователь найден, сохраняем его данные в объект currentUser
     currentUser.login = loggedInUser.login;
     currentUser.name = loggedInUser.name;
@@ -274,7 +274,25 @@ function validateForm(TypeOfWindow) {
 
   return isValid;
 }
+function UpdateProfileInfo(){
+  document.querySelector("#profileName").textContent = currentUser.name;
+    document.querySelector("#profileLogin").textContent = currentUser.login;
+    document.querySelector("#profileInfoName").textContent = currentUser.name;
+    document.querySelector("#profileInfoCountry").textContent =
+      currentUser.adress;
+    document.querySelector("#profileInfoPhone").textContent =
+      currentUser.phoneNumber;
+    document.querySelector("#profileInfoEmail").textContent = currentUser.email;
 
+    // Установка аватара
+    const newLogins = JSON.parse(localStorage.getItem("loginsList"));
+    for (let i = 0; i < newLogins.length; i++) {
+      if (currentUser.login === newLogins[i].login) {
+        const ProfileLogo = document.querySelector("#ProfileLogo");
+        ProfileLogo.src = newLogins[i].avatar;
+      }
+    }
+}
 function IfLogged(LoggedStatus) {
   if (LoggedStatus == false) {
     Display(LogRegWindow, "t");
@@ -285,12 +303,12 @@ function IfLogged(LoggedStatus) {
     console.log(currentUser.login);
 
     //* show AdminWindow button only for Admin_1234
-    const AdminWindow = document.querySelector('#AdminWindow');
-    
-    if(currentUser.login == "Admin_1234") {
+    const AdminWindow = document.querySelector("#AdminWindow");
+    UpdateProfileInfo();
+
+    if (currentUser.login == "Admin_1234") {
       Display(AdminWindow, "t");
-    }
-    else{
+    } else {
       Display(AdminWindow, "f");
     }
 
@@ -322,8 +340,7 @@ function LoginMode() {
       validateForm("Login");
     }
   });
-}
-//* Login mode of window registration/login
+} //* Login mode of window registration/login
 
 function RegisterMode() {
   NameForm.style.display = "block";
@@ -495,29 +512,15 @@ ProfileButton.onclick = () => {
   );
 
   // Обновляем информацию профиля
-  document.querySelector("#profileName").textContent = currentUser.name;
-  document.querySelector("#profileLogin").textContent = currentUser.login;
-  document.querySelector("#profileInfoName").textContent = currentUser.name;
-  document.querySelector("#profileInfoCountry").textContent =
-    currentUser.adress;
-  document.querySelector("#profileInfoPhone").textContent =
-    currentUser.phoneNumber;
-  document.querySelector("#profileInfoEmail").textContent = currentUser.email;
-
-  // Установка аватара
-  const newLogins = JSON.parse(localStorage.getItem("loginsList"));
-  for (let i = 0; i < newLogins.length; i++) {
-    if (currentUser.login === newLogins[i].login) {
-      const ProfileLogo = document.querySelector("#ProfileLogo");
-      ProfileLogo.src = newLogins[i].avatar;
-    }
-  }
+  UpdateProfileInfo();
 };
 
 //! Обработчик события popstate
 
 const AdminSection = document.querySelector(".AdminSection");
 const UserSection = document.querySelector(".UserSection");
+
+console.log(isLogged);
 
 window.addEventListener("popstate", (event) => {
   if (event.state) {
@@ -528,7 +531,7 @@ window.addEventListener("popstate", (event) => {
       Display(ButtonsProfileContainer, "t");
       Display(profileInfo, "f");
       Display(MyGuitarsInfo, "f");
-      Display()
+      Display();
 
       Display(UserSection, "t");
       Display(AdminSection, "f");
@@ -541,7 +544,12 @@ window.addEventListener("popstate", (event) => {
       Display(profileInfo, "t");
       Display(MyGuitarsInfo, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
-    InsideContainer.classList.add("ProfileMode");
+      InsideContainer.classList.add("ProfileMode");
+
+      //*refresh profile info
+
+      UpdateProfileInfo();
+      
     } else if (event.state.OrderGuitarsOpened) {
       // Если состояние истории указывает, что окно заказанных гитар должно быть открыто
       Display(MyGuitarsInfo, "t");
@@ -582,16 +590,20 @@ AdminWindow.onclick = () => {
   Display(UserSection, "f");
   Display(AdminSection, "t");
 
-  history.pushState({ AdminWindowOpened: true }, "Admin-Pannel-window", "Admin-Pannel-window");
+  history.pushState(
+    { AdminWindowOpened: true },
+    "Admin-Pannel-window",
+    "Admin-Pannel-window"
+  );
 };
 
-const popUpGuitarContainer = document.querySelector('.popUpGuitarContainer');
+const popUpGuitarContainer = document.querySelector(".popUpGuitarContainer");
 const ProfileAvatarInput = document.querySelector(".ProfileAvatarInput");
-const closeAvatarInput = document.querySelector('#closeAvatarInput');
+const closeAvatarInput = document.querySelector("#closeAvatarInput");
 
-closeAvatarInput.onclick = () =>{
+closeAvatarInput.onclick = () => {
   Display(ProfileAvatarInput, "f");
-}
+};
 
 // Функция для открытия соответствующего окна на основе состояния истории
 function openPopUpFromHistory() {
@@ -612,7 +624,7 @@ function openPopUpFromHistory() {
     } else if (state.profileOpened) {
       // Если состояние указывает, что профиль должен быть открыт
       registerContainer.classList.remove("Hidden");
-      
+
       Display(LogOutMessage, "f");
       Display(ButtonsProfileContainer, "f");
       Display(profileInfo, "t");
@@ -642,7 +654,7 @@ function openPopUpFromHistory() {
     } else if (state.popUpOpened) {
       // Если состояние истории указывает, что окно заказанных гитар должно быть открыто
       popUpGuitarContainer.classList.remove("Hidden");
-      
+
       Display(ButtonsProfileContainer, "f");
       InsideContainer.classList.add("WiderPopUpProfile");
       InsideContainer.classList.remove("ProfileMode");
@@ -689,35 +701,32 @@ function updateLoginsList() {
 let countriesList = [];
 
 const getCountriesList = async () => {
-  const URL = 'https://api.sampleapis.com/countries/countries';
+  const URL = "https://api.sampleapis.com/countries/countries";
 
   try {
     const response = await axios.get(URL);
     // Получаем массив стран из ответа и сортируем по алфавиту
-    countriesList = response.data.map(country => country.name).sort();
+    countriesList = response.data.map((country) => country.name).sort();
     return countriesList;
   } catch (error) {
     console.error(error);
     throw error;
   }
-}
+};
 
 getCountriesList();
 
-const ProfileAdressInput = document.querySelector('#ProfileAdressInput');
+const ProfileAdressInput = document.querySelector("#ProfileAdressInput");
 setTimeout(() => {
   ProfileAdressInput.innerHTML = "";
-  for(let i = 0; i < countriesList.length; i++){
-    console.log(countriesList[i]);
-    
-    const option = document.createElement('option');
+  for (let i = 0; i < countriesList.length; i++) {
+    const option = document.createElement("option");
     option.value = countriesList[i];
     option.textContent = countriesList[i];
 
-    ProfileAdressInput.appendChild(option)
+    ProfileAdressInput.appendChild(option);
   }
 }, 1000);
-
 
 function showAndCorrectElement(ElementClass, PenID, ElementTextID, InputID) {
   const elementClass = document.querySelector(ElementClass);
@@ -785,7 +794,7 @@ function showAndCorrectElement(ElementClass, PenID, ElementTextID, InputID) {
 
   // Обработчик для изменения значения select (если InputID — это select)
   if (inputID.tagName === "SELECT") {
-    inputID.addEventListener('change', (event) => {
+    inputID.addEventListener("change", (event) => {
       elementTextID.textContent = event.target.value;
 
       Display(inputID, "f");
