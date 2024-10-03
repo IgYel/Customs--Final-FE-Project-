@@ -165,50 +165,49 @@
     height: 50vh;
     padding-top: 2vh;
 
-    .MyGuitarsContainer {
+  }
+}
+.MyGuitarsContainer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+
+  .GuitarItem {
+    width: 13vw;
+    height: 22vh;
+    margin-right: 3%;
+    margin-bottom: 2%;
+    height: fit-content;
+
+    .TitleContainer {
       width: 100%;
-      height: 17vw;
-      display: flex;
-      justify-content: center;
-
-      .GuitarItem {
-        width: 13vw;
-        height: 22vh;
-        margin-right: 3%;
-        margin-bottom: 2%;
-        height: fit-content;
-        background-color: var(--green);
-
-        .TitleContainer {
-          width: 100%;
-          border-top: 0.4vh solid;
-          border-color: var(--color);
-          height: fit-content;
-          margin-top: 2%;
-          .TitleItem {
-            font-size: 30px;
-            text-align: center;
-          }
-        }
-
-        .ImageItem {
-          width: 97%;
-          height: 13vw;
-          object-fit: cover;
-
-          border-right: 0.5vh solid;
-          border-left: 0.5vh solid;
-          border-color: var(--color);
-        }
-        .ReadyStatus {
-          color: var(--green);
-          font-size: 20px;
-        }
-        .NotReadyStatus {
-          color: var(--red);
-          font-size: 20px;
-        }
+      border-top: 0.4vh solid;
+      border-color: var(--color);
+      height: fit-content;
+      margin-top: 2%;
+      .TitleItem {
+        font-size: 15px;
+        text-align: center;
       }
+    }
+
+    .ImageItem {
+      width: 97%;
+      height: 13vw;
+      object-fit: cover;
+
+      border-right: 0.5vh solid;
+      border-left: 0.5vh solid;
+      border-color: var(--color);
+    }
+    .ReadyStatus {
+      color: var(--green);
+      font-size: 20px;
+    }
+    .NotReadyStatus {
+      color: var(--red);
+      font-size: 20px;
     }
   }
 }

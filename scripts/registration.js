@@ -108,6 +108,10 @@ function saveToLocalStorage() {
   localStorage.setItem("loginsList", JSON.stringify(loginsList));
 }
 
+if (!localStorage.getItem("loginsList")) {
+  saveToLocalStorage();
+}
+
 // saveToLocalStorage(); //!uncomment for manual setting Item "loginsList"
 
 //* Current user array
@@ -248,10 +252,10 @@ function validateForm(TypeOfWindow) {
         ClearForm();
       }, 2000);
     }
-
     // Если все проверки пройдены, выводим сообщение об успехе
     if (isValid) {
       successWindow.textContent = "You are successfully logged in";
+      errorPassword.textContent = "";
       Display(errorPassword, "f");
       Display(successWindow, "t");
       LoginAs();
