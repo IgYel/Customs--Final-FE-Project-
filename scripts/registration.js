@@ -803,6 +803,19 @@ showAndCorrectElement(
   "#profileInfoEmail",
   "#ProfileEmailInput"
 );
+//* Different for country Mobile
+
+ProfileAdressInput.addEventListener('change', (event) => {
+  const elementTextID = document.querySelector('#profileInfoCountry');
+  const penID = document.querySelector('#correctAdress');
+  const inputID = document.querySelector('#ProfileAdressInput');
+  const selectedValue = event.target.value;
+
+  elementTextID.textContent = selectedValue;
+  Display(inputID, "f");
+  Display(elementTextID, "i");
+  Display(penID, "i");
+});
 
 //* If quit
 
