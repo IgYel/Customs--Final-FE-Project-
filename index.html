@@ -15,8 +15,8 @@
         visibility: hidden;
       }
     </style>
-    <script type="module" crossorigin src="/Customs--Final-FE-Project-/assets/index-CUre3Ljp.js"></script>
-    <link rel="stylesheet" crossorigin href="/Customs--Final-FE-Project-/assets/index-Cpj6TpLu.css">
+    <script type="module" crossorigin src="/Customs--Final-FE-Project-/assets/index-4nWyW0An.js"></script>
+    <link rel="stylesheet" crossorigin href="/Customs--Final-FE-Project-/assets/index-D9DdOYF7.css">
   </head>
 
   <body>
@@ -389,7 +389,6 @@
             </div>
             
             <div class="rightSideHeader">
-              <div id="popupHeaderMesureLine"></div>
               <div id="popUpHeaderClose">
               <svg id="cross" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 2L52 52M52 2L2 52" stroke="#CD4F4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -743,7 +742,10 @@
                   data-lang-cz="zeme:"
                   data-lang-de="Land:"></p>
                   <span id="profileInfoCountry"></span>
-                  <input id="ProfileAdressInput" type="text" placeholder="input">
+                  <select id="ProfileAdressInput">
+                    <!--* countries list -->
+                    <option value="Ukraine">Ukraine</option>
+                  </select>
 
                   <span id="correctAdress" class="correctButton">
                     <svg class="pencilSVG" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -881,5 +883,6 @@
         }, 1200);
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>
