@@ -686,6 +686,39 @@ function updateLoginsList() {
   }
 }
 
+let countriesList = [];
+
+const getCountriesList = async () => {
+  const URL = 'https://api.sampleapis.com/countries/countries';
+
+  try {
+    const response = await axios.get(URL);
+    // Получаем массив стран из ответа и сортируем по алфавиту
+    countriesList = response.data.map(country => country.name).sort();
+    return countriesList;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+getCountriesList();
+
+const ProfileAdressInput = document.querySelector('#ProfileAdressInput');
+setTimeout(() => {
+  ProfileAdressInput.innerHTML = "";
+  for(let i = 0; i < countriesList.length; i++){
+    console.log(countriesList[i]);
+    
+    const option = document.createElement('option');
+    option.value = countriesList[i];
+    option.textContent = countriesList[i];
+
+    ProfileAdressInput.appendChild(option)
+  }
+}, 1000);
+
+
 function showAndCorrectElement(ElementClass, PenID, ElementTextID, InputID) {
   const elementClass = document.querySelector(ElementClass);
   const elementTextID = document.querySelector(ElementTextID);

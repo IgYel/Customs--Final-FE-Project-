@@ -48,14 +48,6 @@
                 width: 10%;
                 height: 100%;
                 display: flex;
-                
-                #popupHeaderMesureLine{
-                    width: 2%;
-                    height: 85%;
-                    margin-top: 2.5%;
-                    background-color: var(--color);
-                    border-radius: 5vw;
-                }
                 #popUpHeaderClose{
                     padding: 5% 10% 5% 5%;
                     transition: 0.3s ease;
@@ -342,6 +334,9 @@
         height: 90% !important;
       .GuitarItem{
         width: 30vw !important;
+        .TitleItem{
+            font-size: 20px !important;
+        }
         .ImageItem{
           height: 30vw !important;
         }

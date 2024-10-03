@@ -387,7 +387,6 @@
             </div>
             
             <div class="rightSideHeader">
-              <div id="popupHeaderMesureLine"></div>
               <div id="popUpHeaderClose">
               <svg id="cross" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 2L52 52M52 2L2 52" stroke="#CD4F4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -741,7 +740,10 @@
                   data-lang-cz="zeme:"
                   data-lang-de="Land:"></p>
                   <span id="profileInfoCountry"></span>
-                  <input id="ProfileAdressInput" type="text" placeholder="input">
+                  <select id="ProfileAdressInput">
+                    <!--* countries list -->
+                    <option value="Ukraine">Ukraine</option>
+                  </select>
 
                   <span id="correctAdress" class="correctButton">
                     <svg class="pencilSVG" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -879,6 +881,7 @@
         }, 1200);
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
