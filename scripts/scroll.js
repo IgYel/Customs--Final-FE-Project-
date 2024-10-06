@@ -8,6 +8,10 @@ gsap.registerPlugin(ScrollToPlugin);
 
 let endOfScroller = 0;
 
+function isTouchDevice() {
+  return ('ontouchstart' in window) || window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+} // to understand if it is a PC or touchscreen device
+
 document.addEventListener('DOMContentLoaded', () => {
 
   if (window.innerWidth > 1100){
@@ -36,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1300) {
-      location.reload(); //* reload page
+      if(isTouchDevice()){
+        location.reload(); //* reload page
+      }
     }
   });
 
