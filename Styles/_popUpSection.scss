@@ -71,6 +71,7 @@
             display: flex;
             justify-content: space-between;
             padding: 0 5%;
+            pointer-events: none;
             .Props{
                 border: 0.5vh solid;
                 border-top: none;
@@ -81,7 +82,8 @@
                 background-color: var(--bg);
 
                 margin-top: -35vh; //! Prop for JS
-                transition: 0.3s ease-in;
+                transition: 0.15s ease-in;
+                pointer-events: all;
                 .Property{
                     margin-bottom: 10%;
                     @include underline
@@ -102,7 +104,7 @@
             }
             .popUpPropsOn{
                 margin-top: 0 !important;
-                transition: 0.5s ease-in-out;
+                transition: 0.3s ease-in-out;
             }
         }
         .allItemsContainer{
@@ -176,6 +178,7 @@
     top: 0;
     left: 0;
     background-color: #16161693;
+    backdrop-filter: blur(1vh);
     .ItemWindow{
         width: 50%;
         height: 84%;

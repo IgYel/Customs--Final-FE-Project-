@@ -8,6 +8,8 @@
     position: absolute;
     right: 7%;
     top: 34%;
+    font-family: 'megrim';
+    
   }
   .Lamps {
     position: relative;
@@ -229,9 +231,10 @@
       );
     }
     .headerTitle {
-      font-size: 45px;
+      font-size: 55px;
       letter-spacing: 0.5vh;
       width: fit-content;
+      font-family: 'megrim';
     }
     display: flex;
     justify-content: space-between;
@@ -727,7 +730,7 @@
   //* Contact section
 
   .headerTitle{
-    font-size: 35px !important;
+    font-size: 45px !important;
   }
 
   .ContactHeader{
