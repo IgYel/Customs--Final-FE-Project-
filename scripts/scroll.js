@@ -8,9 +8,22 @@ gsap.registerPlugin(ScrollToPlugin);
 
 let endOfScroller = 0;
 
-function isTouchDevice() {
-  return ('ontouchstart' in window) || window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-} // to understand if it is a PC or touchscreen device
+// Function to create scroll triggers (similar to the first method)
+function createScrollTrigger(element, xPercent, trigger, start, end, pin = false) {
+  if (element) {
+    gsap.to(element, {
+      xPercent: xPercent,
+      ease: "none",
+      scrollTrigger: {
+        trigger: trigger,
+        start: start,
+        end: end,
+        scrub: 1,
+        pin: pin
+      }
+    });
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,31 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const endPosition = () => (hScroll.scrollWidth - window.innerWidth) * (1 / scrollSpeed);
     const endofScroll = () => (hScroll.scrollWidth * 1.13);
 
-    gsap.to(hScroll, {
-      x: () => -(hScroll.scrollWidth - window.innerWidth),
-      ease: "none",
-      scrollTrigger: {
-        trigger: hScrollContainer,
-        start: "top top",
-        end: () => `+=${endPosition()}`,
-        scrub: 1,
-        pin: true,
-      }
-    });
+    // Use the function to create the scroll animation for .hScroll
+    createScrollTrigger(
+      hScroll,
+      -100 * (hScroll.scrollWidth - window.innerWidth) / hScroll.scrollWidth,  // Convert width to percentage
+      hScrollContainer,
+      "top top",
+      `+=${endPosition()}`,
+      true // Pin the element
+    );
+
     endOfScroller = endofScroll;
   }
-
-  //* add reload if resized scale for PC device
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1300) {
-      if(isTouchDevice()){
-        location.reload(); //* reload page
-      }
-    }
-  });
-
 });
+
 // //*Mobile header scroll code
 
 // Scroll to for GSAP
