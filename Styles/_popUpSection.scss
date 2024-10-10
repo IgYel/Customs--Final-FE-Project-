@@ -350,6 +350,7 @@
   .OpenItemContainer{
     background-color: #161616c1;
     height: 100vh;
+    backdrop-filter: none;
     .ItemWindow{
         height: 85vh !important;
         width: 88vw !important;

@@ -2,6 +2,68 @@
   width: 100%;
   height: 100vh;
   display: flex;
+
+  #soundOnButton{
+    position: absolute;
+    width: 35px;
+    left: 1vw;
+    top: 10vh;
+
+    .soundBarContainer{
+      height: 0;
+      width: 10px;
+      margin: 5% 12.5px;
+      border-radius: 100px;
+      background-color: var(--color);
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
+      
+      position: relative;
+      #soundBar{
+        position: absolute;
+        left: 0;
+        top: 0; //scrollbar property
+
+        width: 100%;
+        height: 100%;
+        background-color: var(--volumeBar);
+        transition: 0.3s ease;
+      }
+    }
+    .openContainer{
+      height: 15vh;
+    }
+
+    .containerSpeaker{
+      width: 35px;
+      height: 35px;
+      position: relative;
+      svg{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        rect{
+          fill: var(--bg);
+        }
+        path{
+          stroke: var(--color);
+        }
+        #whiteLine{
+          stroke: var(--colorR);
+        }
+      }
+      #speakerON{
+        :nth-child(2){
+          fill: var(--color);
+        }
+      }
+      #speakerOFF{
+        display: none;
+      }
+    }
+  }
   .MainText {
     font-size: 19vh;
     height: 0;
