@@ -123,25 +123,46 @@ function lightOnAnimation() {
         LampFlickering(); // запуск мигания после окончания анимации
     }, 900);// normal on
 }
-//volume functions
+
+//? Volume functions
+
 let volumeLevel = 0.5;
 const soundOnButton = document.querySelector('#soundOnButton');
 let isContainerOpened = false;
 let closeTimeout; // Переменная для хранения таймера
+let isHoveringButton = false; // Переменная для отслеживания наведения на кнопку
 
 soundOnButton.onclick = () => {
-    console.log(isContainerOpened);
     const soundBarContainer = document.querySelector('.soundBarContainer');
 
     // Открываем контейнер и добавляем класс
     soundBarContainer.classList.add('openContainer');
-    // Сбрасываем предыдущее действие таймера, если кнопка нажата повторно
-    clearTimeout(closeTimeout);
+    clearTimeout(closeTimeout); // Сбрасываем предыдущее действие таймера
 
-    // Устанавливаем флаг, что контейнер открыт
-    isContainerOpened = true;
+    isContainerOpened = true; // Устанавливаем флаг, что контейнер открыт
 
+    // Запускаем таймер для закрытия, если мышка не наведена на кнопку
+    if (!isHoveringButton) {
+        closeTimeout = setTimeout(() => {
+            soundBarContainer.classList.remove('openContainer');
+            isContainerOpened = false;
+        }, 3000);
+    }
+};
+
+// Обработчик наведения на кнопку
+soundOnButton.onmouseenter = () => {
+    isHoveringButton = true;
+    clearTimeout(closeTimeout); // Останавливаем таймер, если курсор на кнопке
+};
+
+// Обработчик, когда мышь покидает кнопку
+soundOnButton.onmouseleave = () => {
+    isHoveringButton = false;
+    
+    // Устанавливаем таймер для закрытия контейнера только после ухода мышки
     closeTimeout = setTimeout(() => {
+        const soundBarContainer = document.querySelector('.soundBarContainer');
         soundBarContainer.classList.remove('openContainer');
         isContainerOpened = false;
     }, 3000);
@@ -149,29 +170,91 @@ soundOnButton.onclick = () => {
 
 const speakerON = document.querySelector('#speakerON');
 const speakerOFF = document.querySelector('#speakerOFF');
+const soundBarContainer = document.querySelector('.soundBarContainer');
+const soundBar = document.querySelector('#soundBar');
 
+// Функция для обновления уровня громкости по положению ползунка
+const updateVolume = (newTop) => {
+    const containerHeight = soundBarContainer.getBoundingClientRect().height;
+    volumeLevel = 1 - newTop / containerHeight; // Громкость от 0 (низ) до 1 (верх)
+};
+
+// Событие нажатия на кнопку speakerON (отключение звука)
 speakerON.onclick = () => {
-    if (isContainerOpened == true) {
+    if (isContainerOpened) {
         speakerON.style.display = 'none';
         speakerOFF.style.display = 'block';
 
+        // Ползунок падает в самый низ
+        const containerHeight = soundBarContainer.getBoundingClientRect().height;
+        soundBar.style.top = `${containerHeight}px`;
+
+        // Обновляем громкость до 0
         volumeLevel = 0;
     }
 };
+
+// Событие нажатия на кнопку speakerOFF (включение звука)
 speakerOFF.onclick = () => {
-    if (isContainerOpened == true) {
+    if (isContainerOpened) {
         speakerON.style.display = 'block';
         speakerOFF.style.display = 'none';
 
-        volumeLevel = 0;
+        // Можно добавить здесь логику восстановления предыдущего уровня громкости
+    }
+};
+
+// Событие на нажатие мыши на полосу громкости
+soundBarContainer.onmousedown = (e) => {
+    e.preventDefault(); // Отключаем стандартное поведение браузера
+
+    // Функция для перемещения полосы
+    const moveSoundBar = (event) => {
+        const containerRect = soundBarContainer.getBoundingClientRect();
+
+        // Вычисляем положение курсора относительно контейнера
+        let newTop = event.clientY - containerRect.top;
+
+        // Ограничиваем перемещение полосы внутри контейнера
+        if (newTop < 0) {
+            newTop = 0;
+        }
+
+        if (newTop > containerRect.height) {
+            speakerON.style.display = 'none';
+            speakerOFF.style.display = 'block';
+            newTop = containerRect.height;
+        } else {
+            speakerON.style.display = 'block';
+            speakerOFF.style.display = 'none';
+        }
+
+        // Устанавливаем новое значение для стиля top полосы
+        soundBar.style.top = `${newTop}px`;
+
+        // Обновляем уровень громкости
+        updateVolume(newTop);
+        let currentVolumeLevel = (100 - (newTop / containerRect.height) * 100) / 100;
+        volumeLevel = currentVolumeLevel;
     };
-}
+
+    // Отслеживание движения мыши
+    document.onmousemove = moveSoundBar;
+
+    // Остановка отслеживания при отпускании кнопки мыши
+    document.onmouseup = () => {
+        document.onmousemove = null; // Останавливаем перемещение
+    };
+};
 
 //sound play
 const LampTurnOnSound = new Audio('./sound/lampTurnOnSound.mp3');
 const LampTurnOffSound = new Audio('./sound/lampTurnOffSound.mp3');
-LampTurnOnSound.volume = 0.3;
-LampTurnOffSound.volume = 0.3;
+
+const updateVolumeLevel = () => {
+    LampTurnOnSound.volume = volumeLevel;
+    LampTurnOffSound.volume = volumeLevel;
+};
 
 // switch to dark theme
 LampLight.onclick = () => {
@@ -180,12 +263,15 @@ LampLight.onclick = () => {
         isAnimating = true; // блокируем переключение во время анимации
         lightOnAnimation();
 
+        updateVolumeLevel()
+
         // Останавливаем звук выключения
         LampTurnOffSound.pause();
         LampTurnOffSound.currentTime = 0;
 
         // Воспроизводим звук включения
         LampTurnOnSound.play();
+        console.log(volumeLevel)
     }
 };
 //? set volume
@@ -195,6 +281,8 @@ LampDark.onclick = () => {
     if (!isAnimating) {
         setTheme('light');
         stopFlickering(); // останавливаем мигание
+
+        updateVolumeLevel()
 
         // Останавливаем звук включения
         LampTurnOnSound.pause();
