@@ -248,8 +248,8 @@ soundBarContainer.onmousedown = (e) => {
 };
 
 //sound play
-const LampTurnOnSound = new Audio('./sound/lampTurnOnSound.mp3');
-const LampTurnOffSound = new Audio('./sound/lampTurnOffSound.mp3');
+const LampTurnOnSound = new Audio('../sound/lampTurnOnSound.mp3');
+const LampTurnOffSound = new Audio('../sound/lampTurnOffSound.mp3');
 
 const updateVolumeLevel = () => {
     LampTurnOnSound.volume = volumeLevel;
