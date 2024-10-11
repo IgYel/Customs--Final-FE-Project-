@@ -173,12 +173,6 @@ const speakerOFF = document.querySelector('#speakerOFF');
 const soundBarContainer = document.querySelector('.soundBarContainer');
 const soundBar = document.querySelector('#soundBar');
 
-// Функция для обновления уровня громкости по положению ползунка
-const updateVolume = (newTop) => {
-    const containerHeight = soundBarContainer.getBoundingClientRect().height;
-    volumeLevel = 1 - newTop / containerHeight; // Громкость от 0 (низ) до 1 (верх)
-};
-
 // Событие нажатия на кнопку speakerON (отключение звука)
 speakerON.onclick = () => {
     if (isContainerOpened) {
@@ -204,39 +198,44 @@ speakerOFF.onclick = () => {
     }
 };
 
-// Событие на нажатие мыши на полосу громкости
+const updateVolume = (newTop) => {
+    const containerRect = soundBarContainer.getBoundingClientRect();
+    let currentVolumeLevel = (100 - (newTop / containerRect.height) * 100) / 100;
+    volumeLevel = currentVolumeLevel;
+};
+
+const moveSoundBar = (event) => {
+    const containerRect = soundBarContainer.getBoundingClientRect();
+    
+    // Вычисляем положение курсора относительно контейнера
+    let newTop = event.clientY - containerRect.top;
+
+    // Ограничиваем перемещение полосы внутри контейнера
+    if (newTop < 0) {
+        newTop = 0;
+    }
+    if (newTop > containerRect.height) {
+        speakerON.style.display = 'none';
+        speakerOFF.style.display = 'block';
+        newTop = containerRect.height;
+    } else {
+        speakerON.style.display = 'block';
+        speakerOFF.style.display = 'none';
+    }
+
+    // Устанавливаем новое значение для стиля top полосы
+    soundBar.style.top = `${newTop}px`;
+
+    // Обновляем уровень громкости
+    updateVolume(newTop);
+};
+
+// Обработка нажатия мыши на контейнер
 soundBarContainer.onmousedown = (e) => {
     e.preventDefault(); // Отключаем стандартное поведение браузера
 
-    // Функция для перемещения полосы
-    const moveSoundBar = (event) => {
-        const containerRect = soundBarContainer.getBoundingClientRect();
-
-        // Вычисляем положение курсора относительно контейнера
-        let newTop = event.clientY - containerRect.top;
-
-        // Ограничиваем перемещение полосы внутри контейнера
-        if (newTop < 0) {
-            newTop = 0;
-        }
-
-        if (newTop > containerRect.height) {
-            speakerON.style.display = 'none';
-            speakerOFF.style.display = 'block';
-            newTop = containerRect.height;
-        } else {
-            speakerON.style.display = 'block';
-            speakerOFF.style.display = 'none';
-        }
-
-        // Устанавливаем новое значение для стиля top полосы
-        soundBar.style.top = `${newTop}px`;
-
-        // Обновляем уровень громкости
-        updateVolume(newTop);
-        let currentVolumeLevel = (100 - (newTop / containerRect.height) * 100) / 100;
-        volumeLevel = currentVolumeLevel;
-    };
+    // При нажатии мыши сразу обновляем положение полосы
+    moveSoundBar(e);
 
     // Отслеживание движения мыши
     document.onmousemove = moveSoundBar;
@@ -245,6 +244,11 @@ soundBarContainer.onmousedown = (e) => {
     document.onmouseup = () => {
         document.onmousemove = null; // Останавливаем перемещение
     };
+};
+
+// Обработка одиночного нажатия (без движения мыши)
+soundBarContainer.onclick = (e) => {
+    moveSoundBar(e); // Обновляем положение полосы и громкость при клике
 };
 
 //sound play
