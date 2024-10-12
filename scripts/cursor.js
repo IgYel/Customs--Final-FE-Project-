@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mouseY = 0;
   let cursorX = 0,
     cursorY = 0;
-  const speed = 0.4;
+  const speed = 0.3;
   const offset = 0.5; //* offset with "vh"
 
   document.addEventListener("mousemove", (e) => {
@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function Pointer(elementClass) {
   const elements = document.querySelectorAll(elementClass);
   const cursor = document.querySelector("#cursor");
-  const arrow = document.querySelector('#cursorArrow');
 
   elements.forEach((element) => {
     element.onmouseover = () => {

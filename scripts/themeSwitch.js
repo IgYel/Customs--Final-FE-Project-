@@ -278,7 +278,6 @@ LampLight.onclick = () => {
 
         // Воспроизводим звук включения
         LampTurnOnSound.play();
-        console.log(volumeLevel)
     }
 };
 //? set volume

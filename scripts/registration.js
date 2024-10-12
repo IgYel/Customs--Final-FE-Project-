@@ -304,7 +304,7 @@ function IfLogged(LoggedStatus) {
   } else if (LoggedStatus == true) {
     Display(ProfileWindow, "t");
     Display(LogRegWindow, "f");
-    console.log(currentUser.login);
+    console.log('logged: ',currentUser.login);
 
     //* show AdminWindow button only for Admin_1234
     const AdminWindow = document.querySelector("#AdminWindow");
@@ -523,8 +523,6 @@ ProfileButton.onclick = () => {
 
 const AdminSection = document.querySelector(".AdminSection");
 const UserSection = document.querySelector(".UserSection");
-
-console.log(isLogged);
 
 window.addEventListener("popstate", (event) => {
   if (event.state) {

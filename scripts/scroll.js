@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import "./wipeIn";
 
 //! Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
