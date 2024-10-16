@@ -22,11 +22,8 @@ function WipeElement(elementClass, classAdd, delay, transition, persent) {
 }
 setTimeout(() => {
     WipeElement(".HeaderContainer", 'WipeHeader', 0.7, "ease", 70);
-    WipeElement(".languageSwitchButton", 'wipeLanguage', 0.7, "ease", 100);
 
     WipeElement(".Lamp", 'wipeLamp', 0.4, "cubic-bezier(.21,-0.01,.28,1.37)", 70);
-
-    WipeElement(".hScrollContainer", 'wipeIn', 0.5, "ease", 70);
     
     WipeElement(".ContactSection", 'wipeIn', 1.2, "ease", 70);
 

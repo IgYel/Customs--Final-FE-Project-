@@ -474,12 +474,12 @@ const updateFocusedCard = () => {
 
           setTimeout(() => {
             itemNameElement.textContent = guitarName; // Устанавливаем новое имя гитары
-          }, 100);
+          }, 150);
           
           // Убираем класс через 500 мс
           setTimeout(() => {
             itemNameElement.classList.remove('transited');
-          }, 200);
+          }, 300);
         }
       }
     }
@@ -494,20 +494,17 @@ let imgSwiped = false;
 
 hScroll.addEventListener('touchstart', (e) => {
   startX = e.touches[0].pageX;
-  startY = e.touches[0].pageY;
 });
 
 hScroll.addEventListener('touchmove', (e) => {
   const x = e.touches[0].pageX;
-  const y = e.touches[0].pageY;
 
   const walkX = (startX - x) * 0.02;
-  const walkY = (startY - y) * 0.02;
 
   const GuitarImg = document.querySelectorAll('.GuitarImg');
 
   GuitarImg.forEach((el) => {
-    el.style.transform = `rotateY(${walkX}deg) rotateX(${walkY}deg)`;
+    el.style.transform = `rotateY(${walkX}deg)`;
   });
 
   // Обновляем текущую карточку во время перемещения
@@ -516,7 +513,8 @@ hScroll.addEventListener('touchmove', (e) => {
 
 hScroll.addEventListener('touchend', (event) => {
   const x = event.changedTouches[0].pageX; // Получаем координаты последнего касания
-  const walkX = (startX - x) * 0.2; // Считаем walkX на основе конечной позиции
+  const walkX = (startX - x) * 0.03; // Считаем walkX на основе конечной позиции
+  console.log(walkX);
 
   if (!imgSwiped) {
     const nextImg = () => {
@@ -525,7 +523,7 @@ hScroll.addEventListener('touchend', (event) => {
         hScroll.style.marginLeft = `${currentMargin - 100}%`;
       }
     };
-
+    
     const prevImg = () => {
       let currentMargin = parseFloat(hScroll.style.marginLeft) || 0;
       if (currentMargin < 0) {
