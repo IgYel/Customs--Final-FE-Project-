@@ -474,12 +474,12 @@ const updateFocusedCard = () => {
 
           setTimeout(() => {
             itemNameElement.textContent = guitarName; // Устанавливаем новое имя гитары
-          }, 150);
+          }, 200);
           
           // Убираем класс через 500 мс
           setTimeout(() => {
             itemNameElement.classList.remove('transited');
-          }, 300);
+          }, 400);
         }
       }
     }
