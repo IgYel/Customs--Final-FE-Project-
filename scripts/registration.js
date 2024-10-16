@@ -889,8 +889,22 @@ const ProfileAvatarContainer = document.querySelector(
 const editAvatarButton = document.querySelector("#editAvatarButton");
 
 const avatarinput = document.querySelector("#avatarinput");
+setTimeout(() =>{
+  const logins = JSON.parse(localStorage.getItem("loginsList"));
+  let avatarLink = "";
 
-editAvatarButton.classList.add("Hidden");
+  for(let i = 0; i < logins.length; i++){
+    if(logins[i].login == currentUser.login){
+      avatarLink = logins[i].avatar;
+      console.log(avatarLink);
+      
+      if(avatarLink.trim() !== ""){
+        editAvatarButton.classList.add("Hidden");
+      }
+    }
+  }
+},500)
+
 
 ProfileAvatarContainer.onmouseover = () => {
   isExistCookie("currentUser");
