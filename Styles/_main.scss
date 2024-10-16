@@ -748,20 +748,67 @@
   main {
     overflow: hidden;
   }
-  
+  .transited {
+    filter: blur(3vw);
+    transition: all 0.2s ease; /* Плавный переход для эффекта */
+  }
+  #mobileScrl-ItemName{
+    display: block;
+    position: absolute;
+    bottom: -103%;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    font-size: 6vw;
+    text-align: center;
+    align-content: center;
+    transition: 0.2s ease;
+  }
   .hScrollContainer {
     border: none;
     left: 0vw !important;
-    overflow-y: hidden;
-    overflow-x: auto;
-    border-bottom: 0.5vh solid;
-    border-color: var(--color);
+    // overflow-y: hidden;
+    // overflow-x: auto;
+    overflow: visible !important;
+    height: 100vh;
+    margin-top: 10%;
+    width: 100vw !important;
     #hScroll{
       width: 850%;
-      border: 0.5vh solid;
-      border-color: var(--color);
-      border-right: none;
-      border-left: none;
+      height: 80%;
+      margin-top: 20%;
+      overflow: visible !important;
+      margin-left: 0;
+      margin-left: -0vw;
+      .hScrollElement{
+        perspective: 300px;
+        width: 100vw !important;
+        margin: 0;
+        .wrapper{
+          width: 85%;
+          height: 100%;
+          border-radius: 10vw;
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin: 0 7.5%;
+          z-index: 1;
+          background-color: var(--color);
+          opacity: 0.8;
+
+          transition: 0.3s ease;
+        }
+        .GuitarImg{
+          border-radius: 10vw;
+          border: none;
+          background-color: var(--color);
+          margin:0 7.5%;
+          transform: rotateY(0deg) rotateX(0deg);
+        }
+        .GuitarTitle{
+          display: none;
+        }
+      }
     }
     .lineBotTop{
       display: none;

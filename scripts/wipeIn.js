@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 function WipeElement(elementClass, classAdd, delay, transition, persent) {
     const element = document.querySelector(elementClass);
     element.classList.add(classAdd);
-    console.log('done');
     const delayInMs = Number(delay) * 1000;
 
     ScrollTrigger.create({

@@ -36,7 +36,7 @@ class GuitarElementClass {
         <div id="${this.id}" class="GuitarItem">
             <img class="ImageItem" src="${this.img}" alt="image of guitar">
             <div class="TitleContainer">
-                <span class="TitleItem">${this.name}</span>
+              <span class="TitleItem">${this.name}</span>
             </div>
         </div>
       `;
@@ -52,6 +52,7 @@ class GuitarElementClass {
       const cardHTML = `
         <div id="Item${ID}" class="hScrollElement">
             <span class="GuitarTitle">${this.name}</span>
+            <div class="wrapper"></div>
             <img class="GuitarImg" src="${this.img}" alt="">
         </div>
       `;
@@ -421,6 +422,139 @@ const showHScrollCards = (g1, g2, g3, g4, g5, g6, g7, g8) => {
 };
 
 showHScrollCards(0, 5, 2, 8, 3, 7, 4, 11);
+
+const hScrollContainer = document.querySelector(".hScrollContainer");
+const hScroll = document.querySelector('.hScroll');
+
+const itemNameElement = document.querySelector("#mobileScrl-ItemName");
+let currentCardID = 0;
+
+const updateFocusedCard = () => {
+  const cards = document.querySelectorAll(".hScrollElement");
+  const containerWidth = hScrollContainer.clientWidth;
+  
+  let closestCard = null;
+  let closestDistance = Infinity;
+
+  cards.forEach((card) => {
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const containerCenter = containerWidth / 2;
+
+    const distance = Math.abs(cardCenter - containerCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestCard = card;
+    }
+  });
+
+  if (closestCard) {
+    const cardID = closestCard.id.replace("Item", ""); // Получаем ID карточки
+    const nameOfItem = document.querySelector(`#Item${cardID}`); // Ищем элемент по ID
+    currentCardID = `#Item${cardID}`;
+    
+    const currentCard = document.querySelector(currentCardID);
+    const wrapperOfCard = currentCard.querySelector('.wrapper');
+    const allwrappers = document.querySelectorAll('.wrapper');
+    allwrappers.forEach((el) =>{
+      el.style.opacity = 0.8;
+    })
+    wrapperOfCard.style.opacity = 0;
+
+    if (nameOfItem) {
+      const guitarTitleElement = nameOfItem.querySelector('.GuitarTitle'); // Ищем дочерний элемент с классом GuitarTitle
+      if (guitarTitleElement) {
+        const guitarName = guitarTitleElement.textContent; // Берем текстовое содержимое элемента
+        
+        // Проверяем, изменилось ли содержимое
+        if (itemNameElement.textContent !== guitarName) {
+          // Добавляем класс для анимации
+          itemNameElement.classList.add('transited');
+
+          setTimeout(() => {
+            itemNameElement.textContent = guitarName; // Устанавливаем новое имя гитары
+          }, 100);
+          
+          // Убираем класс через 500 мс
+          setTimeout(() => {
+            itemNameElement.classList.remove('transited');
+          }, 200);
+        }
+      }
+    }
+  }  
+};
+updateFocusedCard();
+//? visual transform while scroll
+
+let startX;
+let startY;
+let imgSwiped = false;
+
+hScroll.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].pageX;
+  startY = e.touches[0].pageY;
+});
+
+hScroll.addEventListener('touchmove', (e) => {
+  const x = e.touches[0].pageX;
+  const y = e.touches[0].pageY;
+
+  const walkX = (startX - x) * 0.02;
+  const walkY = (startY - y) * 0.02;
+
+  const GuitarImg = document.querySelectorAll('.GuitarImg');
+
+  GuitarImg.forEach((el) => {
+    el.style.transform = `rotateY(${walkX}deg) rotateX(${walkY}deg)`;
+  });
+
+  // Обновляем текущую карточку во время перемещения
+  updateFocusedCard(); 
+});
+
+hScroll.addEventListener('touchend', (event) => {
+  const x = event.changedTouches[0].pageX; // Получаем координаты последнего касания
+  const walkX = (startX - x) * 0.2; // Считаем walkX на основе конечной позиции
+
+  if (!imgSwiped) {
+    const nextImg = () => {
+      let currentMargin = parseFloat(hScroll.style.marginLeft) || 0;
+      if (currentMargin > -700) {
+        hScroll.style.marginLeft = `${currentMargin - 100}%`;
+      }
+    };
+
+    const prevImg = () => {
+      let currentMargin = parseFloat(hScroll.style.marginLeft) || 0;
+      if (currentMargin < 0) {
+        hScroll.style.marginLeft = `${currentMargin + 100}%`;
+      }
+    };
+
+    if (walkX >= 3) { 
+      nextImg();
+      imgSwiped = true; // Устанавливаем флаг, что смена изображения произошла
+    } else if (walkX <= -3) { 
+      prevImg();
+      imgSwiped = true; // Устанавливаем флаг, что смена изображения произошла
+    }
+  }
+
+  // Обновляем имя элемента с ID #mobileScrl-ItemName
+  setTimeout(() =>{
+    updateFocusedCard();
+  }, 100)
+
+  // Сбрасываем флаг
+  imgSwiped = false; 
+  const GuitarImg = document.querySelectorAll('.GuitarImg');
+
+  GuitarImg.forEach((el) => {
+    el.style.transform = `rotateY(0deg) rotateX(0deg)`; // Сбрасываем вращение
+  });
+});
 
 //! Preview function
 
