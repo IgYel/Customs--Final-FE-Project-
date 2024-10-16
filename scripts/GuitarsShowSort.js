@@ -513,7 +513,7 @@ hScroll.addEventListener('touchmove', (e) => {
 
 hScroll.addEventListener('touchend', (event) => {
   const x = event.changedTouches[0].pageX; // Получаем координаты последнего касания
-  const walkX = (startX - x) * 0.03; // Считаем walkX на основе конечной позиции
+  const walkX = (startX - x) * 0.04; // Считаем walkX на основе конечной позиции
   console.log(walkX);
 
   if (!imgSwiped) {
