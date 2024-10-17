@@ -121,7 +121,7 @@
   }
   .profileDescription {
     font-size: 21px;
-    line-height: 4vh;
+    line-height: 3vh;
     div {
       padding: 0.5vh 0;
       p {
@@ -159,6 +159,80 @@
 @media only screen and (max-width: 1100px) {
   .profileInfo {
     min-height: 100vh !important;
+    .headerProfile{
+      border: none;
+      border-radius: 15vw;
+      margin: 4vh 0;
+      padding-top: 4vh;
+      .ProfileAvatarContainer{
+        margin-top: 0 !important;
+      }
+    }
+    .profileDescription{
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 6% 2%;
+      grid-auto-rows: minmax(auto, max-content);
+
+      div{
+        background-color: var(--green);
+        border-radius: 5vw;
+        padding: 0vh 2vw;
+        min-height: 15vh;
+        p{
+          text-align: center;
+          width: 100% !important;
+          font-size: 4vw !important;
+          height: 25% !important;
+        }
+        .profileDataText{
+          display: block;
+          width: 100%;
+          background-color: var(--lighter);
+          text-align: center;
+          align-content: center;
+          height: 65%;
+          border-radius: 5vw;
+        }
+        position: relative;
+        .correctButton{
+          position: absolute;
+          right: 0%;
+          bottom: -5%;
+          background-color: var(--blur);
+          border-radius: 100%;
+          padding: 5%;
+          width: 6vw !important;
+          height: 6vw !important;
+          svg{
+            path{
+              fill: var(--white) !important;
+            }
+          }
+          z-index: 100;
+        }
+      }
+      .ProfileUserName{
+        grid-column: span 4;
+        .profileDataText{
+          font-size: 8vw;
+        }
+        background-color: var(--blue);
+      }
+      .ProfileCoutry{
+        grid-column: span 2;
+        background-color: var(--redBlur);
+      }
+      .ProfileEmail{
+        grid-column: span 6;
+        background-color: var(--blue);
+      }
+      .ProfilePhone{
+        grid-column: span 6;
+        font-size: 6vw;
+        background-color: var(--redBlur);
+      }
+    }
   }
   .MyGuitarsInfo {
     background-color: var(--bg);
