@@ -248,31 +248,33 @@ const modelProp = document.querySelector("#modelProp");
 
 let filteredData = [...guitarData];
 
+//* filter guitars function
+
 function filterGuitars() {
-  //* Create an array for filtered data
+  // Создаем массив для фильтрованных данных
   const filteredGuitarData = [];
 
-  // Iterate through all data
+  // Проходим по всем данным
   for (let i = 0; i < guitarData.length; i++) {
     const guitar = guitarData[i];
     let matches = true;
 
-    // Filtering by model
+    // Фильтрация по модели
     if (selectModel.value !== "none" && guitar.model !== selectModel.value) {
       matches = false;
     }
 
-    // Filtering by year
+    // Фильтрация по году
     if (selectYear.value !== "none" && guitar.year !== selectYear.value) {
       matches = false;
     }
 
-    // Filtering by wood
+    // Фильтрация по древесине
     if (selectWood.value !== "none" && guitar.wood !== selectWood.value) {
       matches = false;
     }
 
-    // Filtering by guitarist
+    // Фильтрация по гитаристу
     if (
       selectGuitarist.value !== "none" &&
       guitar.guitarist !== selectGuitarist.value
@@ -280,13 +282,13 @@ function filterGuitars() {
       matches = false;
     }
 
-    // If all filters pass, add to results
+    // Если все фильтры пройдены, добавляем гитару в результат
     if (matches) {
       filteredGuitarData.push(guitar);
     }
   }
 
-  // Clear and display filtered data
+  // Очищаем и выводим фильтрованные данные
   console.clear();
   container.innerHTML = "";
 
@@ -294,12 +296,13 @@ function filterGuitars() {
     filteredGuitarData[i].createAndAppendCard();
   }
 
-  // Update global variable filteredData
+  // Обновляем глобальную переменную filteredData
   filteredData = [...filteredGuitarData];
 
-  
-  attachEventHandlers(); // Bind events after filtering
+  // Привязываем события после фильтрации
+  attachEventHandlers();
 }
+
 
 function filterByCategory(category) {
   // Clear the container
@@ -384,10 +387,10 @@ for (let i = 0; i < guitarData.length; i++) {
 
 //! Applying to buttons
 
-selectModel.onclick = () => filterGuitars();
-selectYear.onclick = () => filterGuitars();
-selectWood.onclick = () => filterGuitars();
-selectGuitarist.onclick = () => filterGuitars();
+selectModel.addEventListener("change", filterGuitars);
+selectYear.addEventListener("change", filterGuitars);
+selectWood.addEventListener("change", filterGuitars);
+selectGuitarist.addEventListener("change", filterGuitars);
 
 guitarsModels.onclick = () => {
   filterByCategory("guitar");

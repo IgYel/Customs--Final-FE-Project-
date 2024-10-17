@@ -104,6 +104,8 @@ document.querySelector('#AboutHeaderButton').onclick = () =>{
 
 document.querySelector('#aboutButton').onclick = () =>{
   scrollTo("#ContactSectionID");
+  history.back();
+  history.back();
 }
 
 document.querySelector('#ArrowButtonID').onclick = () =>{

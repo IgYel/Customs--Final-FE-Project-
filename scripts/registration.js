@@ -27,7 +27,9 @@ loginIcon.onclick = () => {
   Display(ButtonsProfileContainer, "t");
   Display(profileInfo, "f");
 };
+
 //* same for header button
+
 headerloginButton.onclick = () => {
   // Показываем контейнер регистрации
   history.pushState(
@@ -606,6 +608,8 @@ const closeAvatarInput = document.querySelector("#closeAvatarInput");
 closeAvatarInput.onclick = () => {
   Display(ProfileAvatarInput, "f");
 };
+const aboutButton = document.querySelector('#aboutButton');
+
 
 // Функция для открытия соответствующего окна на основе состояния истории
 function openPopUpFromHistory() {
