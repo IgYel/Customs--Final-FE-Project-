@@ -15,9 +15,9 @@
         visibility: hidden;
       }
     </style>
-    <link rel="icon" href="/Customs--Final-FE-Project-/assets/logo-CwazkO4B.svg">
-    <script type="module" crossorigin src="/Customs--Final-FE-Project-/assets/index-BSOr9EXU.js"></script>
-    <link rel="stylesheet" crossorigin href="/Customs--Final-FE-Project-/assets/index-D8TnU9W_.css">
+    <link rel="icon" href="./img/logo.svg">
+    <script type="module" crossorigin src="/Customs--Final-FE-Project-/assets/index-c88a7jFT.js"></script>
+    <link rel="stylesheet" crossorigin href="/Customs--Final-FE-Project-/assets/index-Dn-n6c7g.css">
   </head>
 
   <body>
@@ -105,8 +105,8 @@
         </div>
         <div class="MainText">Customs</div>
         <div class="Lamps">
-        <img id="LampLight" class="Lamp" src="/Customs--Final-FE-Project-/assets/LampLight-BVXuJeT9.svg" alt="">
-        <img id="LampDark" class="Lamp" src="/Customs--Final-FE-Project-/assets/LampDark-C5euj6F6.svg" alt="">
+        <img id="LampLight" class="Lamp" src="./img/LampLight.svg" alt="">
+        <img id="LampDark" class="Lamp" src="./img/LampDark.svg" alt="">
         <div id="Light"></div>
         </div>
         <div class="arrowHint">
@@ -247,7 +247,7 @@
           <div class="ContactHeaderLine"></div>
         </div>
         <div class="contactImageInfo">
-          <img id="TeemImagePC" class="TeamImage" src="/Customs--Final-FE-Project-/assets/Team-BlgC3sQ2.jpg" alt="">
+          <img id="TeemImagePC" class="TeamImage" src="./img/Team.jpg" alt="">
           <div class="ContactMesureLine"></div>
           <div class="TextInfo">
             <div class="Info"
@@ -558,6 +558,12 @@
               <div id="firstImage" class="imageSwitchButton"></div>
               <div id="secondImage" class="imageSwitchButton"></div>
               <div id="thirdImage" class="imageSwitchButton"></div>
+              <div id="videoSwitch" class="imageSwitchButton">
+                <svg width="132" height="132" viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="66" cy="66" r="65" fill="#161616"/>
+                  <path d="M47.8192 30.4952L104.819 63.4042C106.486 64.3664 106.486 66.772 104.819 67.7343L47.8192 100.643C46.1526 101.605 44.0692 100.403 44.0692 98.4782L44.0692 32.6603C44.0692 30.7358 46.1526 29.5329 47.8192 30.4952Z" stroke="#EFEBEB" stroke-width="5"/>
+                </svg>                                   
+              </div>
             </div>
           </div>
 
@@ -569,6 +575,9 @@
               <p id="nameOfItem"></p>
             </div>
           </div>
+
+          <!--? if there is a video for selected guitar -->
+            <iframe class="videoWindow" width="100" height="100" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
           
       </div>
@@ -753,7 +762,7 @@
                   data-lang-en="name:"
                   data-lang-cz="jmeno:"
                   data-lang-de="Name"></p>
-                  <span id="profileInfoName"></span>
+                  <span class="profileDataText" id="profileInfoName"></span>
                   <input id="ProfileNameInput" type="text" placeholder="input">
 
                   <span id="correctName" class="correctButton">
@@ -769,7 +778,7 @@
                   data-lang-en="country:"
                   data-lang-cz="zeme:"
                   data-lang-de="Land:"></p>
-                  <span id="profileInfoCountry"></span>
+                  <span class="profileDataText" id="profileInfoCountry"></span>
                   
                   <select id="ProfileAdressInput">
                     <!--* countries list -->
@@ -788,7 +797,7 @@
                   data-lang-en="phone number:"
                   data-lang-cz="telefonni cislo:"
                   data-lang-de="Telefonnummer:"></p>
-                  <span id="profileInfoPhone"></span>
+                  <span class="profileDataText" id="profileInfoPhone"></span>
                   <input id="ProfilePhoneInput" type="text" placeholder="input">
 
                   <span id="correctPhone" class="correctButton">
@@ -801,7 +810,7 @@
 
                 <div class="ProfileEmail">
                   <p>email:</p>
-                  <span id="profileInfoEmail"></span>
+                  <span class="profileDataText" id="profileInfoEmail"></span>
                   <input id="ProfileEmailInput" type="email" placeholder="input">
                   
                   <span id="correctEmail" class="correctButton">
@@ -912,5 +921,7 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   </body>
 </html>
+
