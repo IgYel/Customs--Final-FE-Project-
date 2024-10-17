@@ -14,7 +14,8 @@ class GuitarElementClass {
     guitarist,
     imgSide,
     imgHead,
-    model
+    model,
+    video,
   ) {
     this.id = id;
     this.name = name;
@@ -28,6 +29,7 @@ class GuitarElementClass {
     this.imgSide = imgSide;
     this.imgHead = imgHead;
     this.model = model;
+    this.video = video;
   }
 
   createAndAppendCard() {
@@ -76,7 +78,8 @@ const guitarData = [
     "Jaxon Malone",
     "./img/LPW side.jpg",
     "./img/LPW HeadStock.png",
-    "LP"
+    "LP",
+    "",
   ),
   new GuitarElementClass(
     "02",
@@ -90,7 +93,8 @@ const guitarData = [
     "Kraven Schwarzstahl",
     "./img/STR side.jpg",
     "./img/STR HeadStock.jpg",
-    "St"
+    "St",
+    "https://www.youtube.com/embed/E2N44O8ZfMc"
   ),
   new GuitarElementClass(
     "03",
@@ -104,7 +108,8 @@ const guitarData = [
     "Joe Fredrix",
     "./img/SABW side.jpg",
     "./img/SABW HeadStock.jpg",
-    "SA"
+    "SA",
+    "",
   ),
   new GuitarElementClass(
     "04",
@@ -118,7 +123,8 @@ const guitarData = [
     "Joe Fredrix",
     "./img/TCB side.jpg",
     "./img/TCB HeadStock.jpg",
-    "TC"
+    "TC",
+    "",
   ),
   new GuitarElementClass(
     "05",
@@ -132,7 +138,8 @@ const guitarData = [
     "Kraven Schwarzstahl",
     "./img/BKW side.jpg",
     "./img/BKW HeadStock.jpg",
-    "Sta"
+    "Sta",
+    "",
   ),
   new GuitarElementClass(
     "06",
@@ -146,7 +153,8 @@ const guitarData = [
     "Jacky Hammett",
     "./img/PBW side.jpg",
     "./img/PBW HeadStock.jpg",
-    "PB"
+    "PB",
+    "",
   ),
   new GuitarElementClass(
     "07",
@@ -160,7 +168,8 @@ const guitarData = [
     "Jacky Hammett",
     "./img/JBG side.jpg",
     "./img/JBG HeadStock.jpeg",
-    "JB"
+    "JB",
+    "",
   ),
   new GuitarElementClass(
     "08",
@@ -174,7 +183,8 @@ const guitarData = [
     "Freddie Madisson",
     "./img/STW side.jpg",
     "./img/STW HeadStock.jpg",
-    "St"
+    "St",
+    "",
   ),
   new GuitarElementClass(
     "09",
@@ -188,7 +198,8 @@ const guitarData = [
     "Jaxon Malone",
     "./img/SABk side.jpg",
     "./img/SABk HeadStock.jpg",
-    "SA"
+    "SA",
+    "",
   ),
   new GuitarElementClass(
     "10",
@@ -202,7 +213,8 @@ const guitarData = [
     "Kraven Schwarzstahl",
     "./img/BKBk side.jpg",
     "./img/BKBk HeadStock.jpg",
-    "Sta"
+    "Sta",
+    "",
   ),
   new GuitarElementClass(
     "11",
@@ -216,7 +228,8 @@ const guitarData = [
     "Jaxon Malone",
     "./img/SGR side.jpeg",
     "./img/SGR HeadStock.png",
-    "SG"
+    "SG",
+    "",
   ),
   new GuitarElementClass(
     "12",
@@ -230,7 +243,8 @@ const guitarData = [
     "Freddie Madisson",
     "./img/LPC side.jpg",
     "./img/LPC HeadStock.jpg",
-    "LP"
+    "LP",
+    "",
   ),
 ];
 
@@ -630,6 +644,11 @@ const showPopUp = (guitar) => {
     document.querySelector("#guitarist").textContent = guitar.guitarist;
     document.querySelector("#nameOfItem").textContent = guitar.name;
 
+    if(guitar.video.trim() !== ""){
+      document.querySelector('#videoSwitch').style.display = "block";
+    } else{
+      document.querySelector('#videoSwitch').style.display = "none";
+    }
     OpenItemContainer.classList.remove("Hidden");
 
     // Function to switch photos in the popup
@@ -637,7 +656,6 @@ const showPopUp = (guitar) => {
     switchPhotos();
   }
 };
-
 // Function to switch photos in the popup
 const switchPhotos = () => {
   if (selectedItem) {
@@ -656,11 +674,22 @@ const switchPhotos = () => {
       document.querySelector("#thirdImage").classList.add("ImageSelected");
       document.querySelector("#firstImage").classList.remove("ImageSelected");
       document.querySelector("#secondImage").classList.remove("ImageSelected");
+    } else if (i === 4) {
+      ItemWindow.querySelector('.leftSide').style.display = "none";
+      ItemWindow.querySelector('.rightSide').style.display = "none";
+      ItemWindow.querySelector('.videoWindow').style.display = "block";
+      ItemWindow.querySelector('.videoWindow').src = selectedItem.video;
     }
   }
 };
 
 const cursor = document.querySelector("#cursor");
+
+const turnOffVideo = () =>{
+  ItemWindow.querySelector('.leftSide').style.display = "flex";
+  ItemWindow.querySelector('.rightSide').style.display = "flex";
+  ItemWindow.querySelector('.videoWindow').style.display = "none";
+}
 
 OpenItemContainer.addEventListener("click", (event) => {
   if (event.target === ItemWindow || ItemWindow.contains(event.target)) {
@@ -668,6 +697,7 @@ OpenItemContainer.addEventListener("click", (event) => {
   }
   OpenItemContainer.classList.add("Hidden");
   cursor.classList.remove("scale");
+  turnOffVideo()
 });
 
 OpenItemContainer.addEventListener("mouseover", (event) => {
@@ -688,6 +718,11 @@ document.querySelector("#secondImage").onclick = () => {
 };
 document.querySelector("#thirdImage").onclick = () => {
   i = 3;
+  switchPhotos();
+};
+document.querySelector("#videoSwitch").onclick = () => {
+  i = 4;
+  console.log(i);
   switchPhotos();
 };
 

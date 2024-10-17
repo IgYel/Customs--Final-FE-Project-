@@ -610,7 +610,6 @@ closeAvatarInput.onclick = () => {
 };
 const aboutButton = document.querySelector('#aboutButton');
 
-
 // Функция для открытия соответствующего окна на основе состояния истории
 function openPopUpFromHistory() {
   const state = history.state; // Получаем текущее состояние истории

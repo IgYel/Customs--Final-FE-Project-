@@ -6,6 +6,13 @@ const popUpAllModelsClose = document.querySelector("#popUpHeaderClose");
 const allModelsHeaderButton = document.querySelector("#allModelsHeader");
 const allModelsButtonAside = document.querySelector("#allModelsButton");
 const allGuitarsButtonContact = document.querySelector("#allGuitarsButton");
+const turnOffVideo = () =>{
+  const ItemWindow = document.querySelector('.ItemWindow');
+  
+  ItemWindow.querySelector('.leftSide').style.display = "flex";
+  ItemWindow.querySelector('.rightSide').style.display = "flex";
+  ItemWindow.querySelector('.videoWindow').style.display = "none";
+}
 
 // Прячем попап по умолчанию
 popUpGuitarContainer.classList.add("Hidden");
@@ -39,7 +46,7 @@ const openPopUp = () => {
 
     const OpenItemContainer = document.querySelector('.OpenItemContainer');
     OpenItemContainer.classList.add("Hidden");
-
+    
     // Возвращаемся к предыдущему состоянию в истории
     history.back();
   });
@@ -55,6 +62,7 @@ const openPopUp = () => {
 
       const OpenItemContainer = document.querySelector('.OpenItemContainer');
       OpenItemContainer.classList.add("Hidden");
+      turnOffVideo();
     }
   });
 };

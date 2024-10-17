@@ -556,6 +556,12 @@
               <div id="firstImage" class="imageSwitchButton"></div>
               <div id="secondImage" class="imageSwitchButton"></div>
               <div id="thirdImage" class="imageSwitchButton"></div>
+              <div id="videoSwitch" class="imageSwitchButton">
+                <svg width="132" height="132" viewBox="0 0 132 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="66" cy="66" r="65" fill="#161616"/>
+                  <path d="M47.8192 30.4952L104.819 63.4042C106.486 64.3664 106.486 66.772 104.819 67.7343L47.8192 100.643C46.1526 101.605 44.0692 100.403 44.0692 98.4782L44.0692 32.6603C44.0692 30.7358 46.1526 29.5329 47.8192 30.4952Z" stroke="#EFEBEB" stroke-width="5"/>
+                </svg>                                   
+              </div>
             </div>
           </div>
 
@@ -567,6 +573,9 @@
               <p id="nameOfItem"></p>
             </div>
           </div>
+
+          <!--? if there is a video for selected guitar -->
+            <iframe class="videoWindow" width="100" height="100" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
           
       </div>
@@ -911,5 +920,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="./scripts/main.js"></script>
+
   </body>
 </html>
+
