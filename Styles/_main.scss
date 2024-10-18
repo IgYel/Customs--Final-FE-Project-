@@ -823,6 +823,9 @@
       position: fixed;
       border-radius: 0 2vh 2vh 0;
       z-index: 250 !important;
+      #ArrowButtonID{
+        transform: rotate(-150deg);
+      }
     }
   }
   .headerHide{
