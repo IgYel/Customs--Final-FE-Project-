@@ -102,11 +102,11 @@ document.querySelector('#AboutHeaderButton').onclick = () =>{
   scrollTo("#ContactSectionID");
 }
 
-document.querySelector('#aboutButton').onclick = () =>{
+document.querySelector('#aboutButton').onclick = () => {
   scrollTo("#ContactSectionID");
-  history.back();
-  history.back();
-}
+  const stepsToGoBack = -(history.length - 1); // вычисляем, сколько шагов назад нужно сделать
+  history.go(stepsToGoBack); // возвращаемся в самое начало истории
+};
 
 document.querySelector('#ArrowButtonID').onclick = () =>{
   scrollTo(endOfScroller);
