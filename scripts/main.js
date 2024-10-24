@@ -1,4 +1,5 @@
 import "../Styles/style.scss";
+
 import "./themeSwitch";
 import "./scroll";
 import "./cursor";
